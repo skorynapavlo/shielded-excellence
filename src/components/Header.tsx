@@ -16,7 +16,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-lg border-b border-border">
       <div className="container flex items-center justify-between h-16">
         <a href="#" className="font-display text-xl font-bold text-foreground tracking-tight">
-          SHIELD<span className="text-accent">RF</span>
+          EMIG<span className="text-accent">LI</span>
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
