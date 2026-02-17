@@ -4,7 +4,7 @@ const Footer = () => (
       <div className="flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
           <span className="font-display text-xl font-bold tracking-tight">
-            SHIELD<span className="text-accent">RF</span>
+            EMIG<span className="text-accent">LI</span>
           </span>
           <p className="text-sm text-primary-foreground/60 mt-1">
             Precision RF Shielding for MRI Systems
@@ -18,7 +18,7 @@ const Footer = () => (
         </div>
       </div>
       <div className="border-t border-primary-foreground/10 mt-8 pt-8 text-center text-xs text-primary-foreground/40">
-        © {new Date().getFullYear()} ShieldRF. All rights reserved.
+        © {new Date().getFullYear()} EMIGLI. All rights reserved.
       </div>
     </div>
   </footer>
