@@ -5,11 +5,11 @@ import productDoor from "@/assets/product-door.jpg";
 
 const products = [
   {
-    title: "RF Shielding Panels",
+    title: "RF Shielded Windows",
     description:
-      "Modular copper-mesh panels with precision-welded aluminum frames. Available in standard and custom dimensions for any MRI suite configuration.",
+      "Multi-layer laminated RF shielded windows with copper mesh interlayer, providing clear visibility into the MRI suite without compromising electromagnetic integrity.",
     image: productPanel,
-    specs: ["Up to 120 dB attenuation", "Modular design", "Custom sizes"],
+    specs: ["Up to 100 dB attenuation", "Anti-glare coating", "Custom sizes"],
   },
   {
     title: "Complete RF Enclosures",
