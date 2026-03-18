@@ -1,3 +1,5 @@
+import emigliLogo from "@/assets/emigli-logo.png";
+
 const Footer = () => (
   <footer className="bg-primary text-primary-foreground py-12">
     <div className="container">
