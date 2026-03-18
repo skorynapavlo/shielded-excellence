@@ -5,9 +5,7 @@ const Footer = () => (
     <div className="container">
       <div className="flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
-          <span className="font-display text-xl font-bold tracking-tight">
-            EMIG<span className="text-accent">LI</span>
-          </span>
+          <img src={emigliLogo} alt="EMIgli" className="h-10 brightness-0 invert" />
           <p className="text-sm text-primary-foreground/60 mt-1">
             Precision RF Shielding for MRI Systems
           </p>
