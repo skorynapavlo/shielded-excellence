@@ -1,17 +1,20 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useI18n } from "@/i18n/I18nProvider";
 import emigliLogo from "@/assets/emigli-logo.png";
-
-const navLinks = [
-  { label: "Products", href: "#products" },
-  { label: "Capabilities", href: "#capabilities" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Contact", href: "#contact" },
-];
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { t } = useI18n();
+
+  const navLinks = [
+    { label: t.nav.products, href: "#products" },
+    { label: t.nav.capabilities, href: "#capabilities" },
+    { label: t.nav.testimonials, href: "#testimonials" },
+    { label: t.nav.contact, href: "#contact" },
+  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-lg border-b border-border">
@@ -30,18 +33,22 @@ const Header = () => {
               {l.label}
             </a>
           ))}
+          <LanguageSwitcher />
           <Button asChild size="sm">
-            <a href="#contact">Get a Quote</a>
+            <a href="#contact">{t.nav.getQuote}</a>
           </Button>
         </nav>
 
-        <button
-          className="md:hidden text-foreground"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <LanguageSwitcher />
+          <button
+            className="text-foreground"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {mobileOpen && (
@@ -57,7 +64,7 @@ const Header = () => {
             </a>
           ))}
           <Button asChild size="sm" className="w-full">
-            <a href="#contact" onClick={() => setMobileOpen(false)}>Get a Quote</a>
+            <a href="#contact" onClick={() => setMobileOpen(false)}>{t.nav.getQuote}</a>
           </Button>
         </div>
       )}
