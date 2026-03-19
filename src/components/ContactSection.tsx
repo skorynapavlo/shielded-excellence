@@ -5,9 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { useI18n } from "@/i18n/I18nProvider";
 
 const ContactSection = () => {
   const { toast } = useToast();
+  const { t } = useI18n();
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -15,7 +17,7 @@ const ContactSection = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      toast({ title: "Message sent!", description: "We'll get back to you within 24 hours." });
+      toast({ title: t.contact.toastTitle, description: t.contact.toastDescription });
       (e.target as HTMLFormElement).reset();
     }, 1000);
   };
@@ -30,19 +32,19 @@ const ContactSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <span className="text-sm font-medium tracking-widest uppercase text-accent">Contact</span>
+            <span className="text-sm font-medium tracking-widest uppercase text-accent">{t.contact.sectionLabel}</span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-3 mb-4">
-              Let's Discuss Your Project
+              {t.contact.title}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-10 max-w-md">
-              Whether you need a custom enclosure quote or technical consultation, our engineering team is ready to help.
+              {t.contact.description}
             </p>
 
             <div className="space-y-6">
               {[
-                { icon: Phone, text: "+1 (555) 012-3456" },
-                { icon: Mail, text: "info@shieldrf.com" },
-                { icon: MapPin, text: "1200 Industrial Pkwy, Suite 300, Denver, CO 80202" },
+                { icon: Phone, text: t.contact.phone },
+                { icon: Mail, text: t.contact.email },
+                { icon: MapPin, text: t.contact.address },
               ].map(({ icon: Icon, text }) => (
                 <div key={text} className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center shrink-0">
@@ -64,24 +66,24 @@ const ContactSection = () => {
           >
             <div className="grid sm:grid-cols-2 gap-5">
               <div>
-                <label className="text-sm font-medium text-foreground mb-1.5 block">Name</label>
-                <Input placeholder="Your name" required />
+                <label className="text-sm font-medium text-foreground mb-1.5 block">{t.contact.nameLabel}</label>
+                <Input placeholder={t.contact.namePlaceholder} required />
               </div>
               <div>
-                <label className="text-sm font-medium text-foreground mb-1.5 block">Company</label>
-                <Input placeholder="Organization" />
+                <label className="text-sm font-medium text-foreground mb-1.5 block">{t.contact.companyLabel}</label>
+                <Input placeholder={t.contact.companyPlaceholder} />
               </div>
             </div>
             <div>
-              <label className="text-sm font-medium text-foreground mb-1.5 block">Email</label>
-              <Input type="email" placeholder="you@company.com" required />
+              <label className="text-sm font-medium text-foreground mb-1.5 block">{t.contact.emailLabel}</label>
+              <Input type="email" placeholder={t.contact.emailPlaceholder} required />
             </div>
             <div>
-              <label className="text-sm font-medium text-foreground mb-1.5 block">Project Details</label>
-              <Textarea placeholder="Tell us about your MRI shielding requirements…" rows={5} required />
+              <label className="text-sm font-medium text-foreground mb-1.5 block">{t.contact.detailsLabel}</label>
+              <Textarea placeholder={t.contact.detailsPlaceholder} rows={5} required />
             </div>
             <Button type="submit" className="w-full" disabled={loading}>
-              {loading ? "Sending…" : <>Send Message <Send className="ml-2 w-4 h-4" /></>}
+              {loading ? t.contact.sending : <>{t.contact.send} <Send className="ml-2 w-4 h-4" /></>}
             </Button>
           </motion.form>
         </div>
