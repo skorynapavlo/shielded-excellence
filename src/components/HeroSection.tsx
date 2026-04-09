@@ -21,12 +21,14 @@ const HeroSection = () => {
           transition={{ duration: 0.7 }}
           className="max-w-2xl"
         >
-          <div className="flex items-center gap-2 mb-6">
-            <Shield className="w-5 h-5 text-accent" />
-            <span className="text-sm font-medium tracking-widest uppercase text-accent">
-              {t.hero.badge}
-            </span>
-          </div>
+          {t.hero.badge && (
+            <div className="flex items-center gap-2 mb-6">
+              <Shield className="w-5 h-5 text-accent" />
+              <span className="text-sm font-medium tracking-widest uppercase text-accent">
+                {t.hero.badge}
+              </span>
+            </div>
+          )}
 
           <h1 className="font-display text-4xl md:text-6xl font-bold text-primary-foreground leading-tight mb-6">
             {t.hero.titleStart}{" "}

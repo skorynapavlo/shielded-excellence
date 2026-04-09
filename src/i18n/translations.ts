@@ -10,7 +10,7 @@ export const translations = {
       getQuote: "Get a Quote",
     },
     hero: {
-      badge: "Precision RF Shielding",
+      badge: "",
       titleStart: "Engineered RF Cages for",
       titleHighlight: "MRI Excellence",
       description:
