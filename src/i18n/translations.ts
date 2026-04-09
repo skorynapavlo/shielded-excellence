@@ -113,7 +113,7 @@ export const translations = {
       getQuote: "Отримати пропозицію",
     },
     hero: {
-      badge: "Точне РЧ-екранування",
+      badge: "",
       titleStart: "Інженерні РЧ-камери для",
       titleHighlight: "досконалості МРТ",
       description:
