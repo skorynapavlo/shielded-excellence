@@ -10,7 +10,7 @@ export const translations = {
       getQuote: "Get a Quote",
     },
     hero: {
-      badge: "Precision RF Shielding",
+      badge: "",
       titleStart: "Engineered RF Cages for",
       titleHighlight: "MRI Excellence",
       description:
@@ -113,7 +113,7 @@ export const translations = {
       getQuote: "Отримати пропозицію",
     },
     hero: {
-      badge: "Точне РЧ-екранування",
+      badge: "",
       titleStart: "Інженерні РЧ-камери для",
       titleHighlight: "досконалості МРТ",
       description:
