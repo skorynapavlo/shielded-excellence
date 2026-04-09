@@ -34,9 +34,6 @@ const Header = () => {
             </a>
           ))}
           <LanguageSwitcher />
-          <Button asChild size="sm">
-            <a href="#contact">{t.nav.getQuote}</a>
-          </Button>
         </nav>
 
         <div className="md:hidden flex items-center gap-2">
@@ -63,9 +60,6 @@ const Header = () => {
               {l.label}
             </a>
           ))}
-          <Button asChild size="sm" className="w-full">
-            <a href="#contact" onClick={() => setMobileOpen(false)}>{t.nav.getQuote}</a>
-          </Button>
         </div>
       )}
     </header>
