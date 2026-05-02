@@ -85,7 +85,7 @@ export const translations = {
       description:
         "Whether you need a custom enclosure quote or technical consultation, our engineering team is ready to help.",
       phone: "+1 (555) 012-3456",
-      email: "info@shieldrf.com",
+       email: "info@emigli.com",
       address: "1200 Industrial Pkwy, Suite 300, Denver, CO 80202",
       nameLabel: "Name",
       namePlaceholder: "Your name",
@@ -133,18 +133,18 @@ export const translations = {
             "Двері зі спеціальним ущільненням для стабільного екранування.",
           specs: ["До 100 дБ ослаблення", "Антиблікове покриття", "Індивідуальні розміри"],
         },
-        {
-          title: "Повні РЧ-корпуси",
-          description:
-            "Комплексні екрановані кімнати для систем МРТ 1.5T, 3T та 7T. Повна установка та введення в експлуатацію включені.",
-          specs: ["Індивідуальні розміри", "Комплексна поставка", "Відповідність IEC 61000"],
-        },
-        {
-          title: "РЧ-екрановані двері",
-          description:
-            "Двері з пневматичним ущільненням та безперервними мідно-берилієвими контактними прокладками для стабільного екранування.",
-          specs: ["Пневматичне ущільнення", "Відповідність ADA", "Ресурс 250K+ циклів"],
-        },
+       {
+         title: "РЧ-екрановані вікна",
+         description:
+           "Комплексні екрановані кімнати для систем МРТ 1.5T, 3T та 7T. Повна установка та введення в експлуатацію включені.",
+         specs: ["Індивідуальні розміри", "Комплексна поставка", "Відповідність IEC 61000"],
+       },
+       {
+         title: "РЧ-екрановані двері",
+         description:
+           "Вікна з двома шарами спеціальної сітки всередині для стабільного екранування.",
+         specs: ["Пневматичне ущільнення", "Відповідність ADA", "Ресурс 250K+ циклів"],
+       },
       ],
     },
     capabilities: {
@@ -187,9 +187,9 @@ export const translations = {
       title: "Обговоримо ваш проект",
       description:
         "Для прорахунку вартості проєкту, або у разі необхідності технічної консультації — наша інженерна команда готова допомогти.",
-      phone: "+1 (555) 012-3456",
-      email: "info@shieldrf.com",
-      address: "1200 Industrial Pkwy, Suite 300, Denver, CO 80202",
+       phone: "+1 (555) 012-3456",
+       email: "info@emigli.com",
+       address: "1200 Industrial Pkwy, Suite 300, Denver, CO 80202",
       nameLabel: "Ім'я",
       namePlaceholder: "Ваше ім'я",
       companyLabel: "Компанія",
