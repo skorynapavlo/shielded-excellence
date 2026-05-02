@@ -35,7 +35,7 @@ const HeroSection = () => {
             <span className="text-gradient">{t.hero.titleHighlight}</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-primary-foreground/75 mb-10 max-w-xl leading-relaxed">
+          <p className="text-lg md:text-xl text-primary-foreground/75 mb-10 max-w-xl leading-relaxed text-justify">
             {t.hero.description}
           </p>
 
@@ -48,7 +48,7 @@ const HeroSection = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
+              className="border-primary-foreground/30 text-primary-foreground bg-muted-foreground hover:bg-primary-foreground/10"
               asChild
             >
               <a href="#contact">{t.hero.requestQuote}</a>
