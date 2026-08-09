@@ -34,7 +34,7 @@ export const translations = {
           title: "Complete RF Enclosures",
           description:
             "Turnkey shielded room solutions engineered for 1.5T, 3T, and 7T MRI systems. Full installation and commissioning included.",
-          specs: ["1.5T – 7T compatible", "Turnkey delivery", "IEC 61000 compliant"],
+          specs: ["0.2T – 3T compatible", "Turnkey delivery", ""],
         },
         {
           title: "RF Shielded Doors",
