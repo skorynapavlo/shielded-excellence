@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useI18n } from "@/i18n/I18nProvider";
+import ManufacturersTicker from "@/components/ManufacturersTicker";
 import productPanel from "@/assets/product-panel.jpg";
 import productRoom from "@/assets/product-room.jpg";
 import productDoor from "@/assets/product-door.jpg";
@@ -28,6 +29,8 @@ const ProductsSection = () => {
           </h2>
           <p className="text-muted-foreground leading-relaxed">{t.products.description}</p>
         </div>
+
+        <ManufacturersTicker />
 
         <div className="grid md:grid-cols-3 gap-8">
           {t.products.items.map((p, i) => (
