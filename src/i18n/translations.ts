@@ -28,7 +28,7 @@ export const translations = {
           title: "RF Shielded Windows",
           description:
             "Multi-layer laminated RF shielded windows with copper mesh interlayer, providing clear visibility into the MRI suite without compromising electromagnetic integrity.",
-          specs: ["Up to 100 dB attenuation", "Anti-glare coating", "Custom sizes"],
+          specs: ["Up to 100 dB attenuation", "Anti-glare coating", ""],
         },
         {
           title: "Complete RF Enclosures",
@@ -131,7 +131,7 @@ export const translations = {
            title: "РЧ-екрановані вікна",
            description:
              "Вікна з двома шарами спеціальної сітки всередині для стабільного екранування.",
-           specs: ["До 100 дБ ослаблення", "Антиблікове покриття", "Індивідуальні розміри"],
+           specs: ["До 100 дБ ослаблення", "Антиблікове покриття", ""],
          },
          {
            title: "РЧ-клітка",
