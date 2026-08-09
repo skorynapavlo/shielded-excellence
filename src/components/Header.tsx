@@ -12,7 +12,6 @@ const Header = () => {
   const navLinks = [
     { label: t.nav.products, href: "#products" },
     { label: t.nav.capabilities, href: "#capabilities" },
-    { label: t.nav.testimonials, href: "#testimonials" },
     { label: t.nav.contact, href: "#contact" },
   ];
 
