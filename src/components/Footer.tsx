@@ -17,7 +17,6 @@ const Footer = () => {
           <div className="flex gap-8 text-sm text-primary-foreground/60">
             <a href="#products" className="hover:text-primary-foreground transition-colors">{t.nav.products}</a>
             <a href="#capabilities" className="hover:text-primary-foreground transition-colors">{t.nav.capabilities}</a>
-            <a href="#testimonials" className="hover:text-primary-foreground transition-colors">{t.nav.testimonials}</a>
             <a href="#contact" className="hover:text-primary-foreground transition-colors">{t.nav.contact}</a>
           </div>
         </div>
