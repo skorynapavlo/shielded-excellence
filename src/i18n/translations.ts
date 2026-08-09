@@ -40,7 +40,7 @@ export const translations = {
           title: "RF Shielded Doors",
           description:
             "Pneumatic-sealed doors with continuous copper-beryllium finger stock gaskets ensuring consistent shielding performance.",
-          specs: ["Pneumatic seal", "ADA compliant", "250K+ cycle rated"],
+          specs: ["Pneumatic seal", "", ""],
         },
       ],
     },
@@ -143,7 +143,7 @@ export const translations = {
            title: "РЧ-екрановані двері",
            description:
              "Двері зі спеціальним ущільненням для стабільного екранування.",
-           specs: ["До 100 дБ ослаблення", "Відповідність ADA", "Ресурс 250K+ циклів"],
+           specs: ["До 100 дБ ослаблення", "", ""],
          },
       ],
     },
