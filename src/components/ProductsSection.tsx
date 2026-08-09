@@ -51,7 +51,7 @@ const ProductsSection = () => {
                 <h3 className="font-display text-xl font-semibold text-foreground mb-2">{p.title}</h3>
                 <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{p.description}</p>
                 <div className="flex flex-wrap gap-2">
-                  {p.specs.map((s) => (
+                  {p.specs.map((s) => s && (
                     <span key={s} className="text-xs font-medium bg-secondary text-secondary-foreground px-3 py-1 rounded-full">
                       {s}
                     </span>
