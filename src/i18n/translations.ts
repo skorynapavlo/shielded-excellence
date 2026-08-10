@@ -14,7 +14,7 @@ export const translations = {
       titleStart: "Engineered RF Cages for",
       titleHighlight: "MRI Excellence",
       description:
-        "Industry-leading electromagnetic shielding solutions designed for optimal MRI performance, patient safety, and regulatory compliance.",
+        "Industry-leading electromagnetic shielding solutions designed for best MRI performance, patient safety, and regulatory compliance.",
       viewProducts: "View Products",
       requestQuote: "Request a Quote",
     },
