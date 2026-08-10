@@ -45,8 +45,8 @@ export const translations = {
       ],
     },
     capabilities: {
-      sectionLabel: "Why Choose Us",
-      title: "Engineering Capabilities",
+      sectionLabel: "",
+      title: "Why Choose Us",
       description:
         "Decades of expertise in electromagnetic shielding, backed by cutting-edge manufacturing and rigorous quality control.",
       items: [
@@ -148,8 +148,8 @@ export const translations = {
       ],
     },
     capabilities: {
-      sectionLabel: "Чому обирають нас",
-      title: "Інженерні можливості",
+      sectionLabel: "",
+      title: "Чому обирають нас",
       description:
         "Багато років досвіду в електромагнітному екрануванні, підкріплені передовим виробництвом та суворим контролем якості.",
       items: [

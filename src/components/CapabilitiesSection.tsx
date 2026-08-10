@@ -11,7 +11,6 @@ const CapabilitiesSection = () => {
     <section id="capabilities" className="py-24 md:py-32 bg-primary text-primary-foreground">
       <div className="container">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-sm font-medium tracking-widest uppercase text-accent">{t.capabilities.sectionLabel}</span>
           <h2 className="font-display text-3xl md:text-4xl font-bold mt-3 mb-4">
             {t.capabilities.title}
           </h2>
