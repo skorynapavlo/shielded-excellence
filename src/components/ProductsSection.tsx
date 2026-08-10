@@ -23,7 +23,6 @@ const ProductsSection = () => {
     <section id="products" className="py-24 md:py-32" style={{ background: "var(--section-gradient)" }}>
       <div className="container">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-sm font-medium tracking-widest uppercase text-accent">{t.products.sectionLabel}</span>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-3 mb-4">
             {t.products.title}
           </h2>
