@@ -7,8 +7,12 @@ interface I18nContextType {
   setLocale: (locale: Locale) => void;
 }
 
-const I18nContext = createContext<I18nContextType | undefined>(undefined);
+// Store the context on globalThis so hot-module-reload duplicates share one instance.
+const g = globalThis as unknown as { __EMIGLI_I18N_CTX__?: React.Context<I18nContextType | undefined> };
+const I18nContext =
+  g.__EMIGLI_I18N_CTX__ ?? createContext<I18nContextType | undefined>(undefined);
 I18nContext.displayName = "I18nContext";
+g.__EMIGLI_I18N_CTX__ = I18nContext;
 
 export const I18nProvider = ({ children }: { children: ReactNode }) => {
   const [locale, setLocaleState] = useState<Locale>(() => {
@@ -31,6 +35,13 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
 
 export const useI18n = () => {
   const ctx = useContext(I18nContext);
-  if (!ctx) throw new Error("useI18n must be used within I18nProvider");
-  return ctx;
+  if (ctx) return ctx;
+  // Fallback keeps the UI rendering (e.g. during HMR) instead of blanking the screen.
+  const saved = typeof localStorage !== "undefined" ? localStorage.getItem("locale") : null;
+  const locale: Locale = saved === "uk" ? "uk" : "en";
+  return {
+    locale,
+    t: translations[locale],
+    setLocale: (l: Locale) => localStorage.setItem("locale", l),
+  };
 };
