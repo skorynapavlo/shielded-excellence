@@ -53,7 +53,7 @@ export const translations = {
         { title: "100+ dB Attenuation", desc: "Exceeding international shielding standards across all MRI frequencies." },
         { title: "Custom Engineering", desc: "Every cage tailored to your facility's exact dimensions and requirements." },
         { title: "Advanced Simulation", desc: "FEM-based electromagnetic modeling ensures performance before fabrication." },
-        { title: "Full Installation", desc: "On-site assembly, testing, and commissioning by our specialist teams." },
+        { title: "Full Installation", desc: "We deliver turnkey projects — from site measurements and design to manufacturing, delivery, and installation." },
         { title: "Fast Turnaround", desc: "Streamlined production delivering from concept to install in 4–8 weeks." },
         { title: "Certified Quality", desc: "ISO 9001 certified processes with full traceability and documentation." },
       ],
