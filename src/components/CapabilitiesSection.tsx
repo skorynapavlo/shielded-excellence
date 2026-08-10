@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { Cpu, Ruler, ShieldCheck, Wrench, Zap, Award } from "lucide-react";
+import { Clock, Cpu, Ruler, ShieldCheck, Wrench, Award } from "lucide-react";
 import { useI18n } from "@/i18n/I18nProvider";
 
-const icons = [ShieldCheck, Ruler, Cpu, Wrench, Zap, Award];
+const icons = [ShieldCheck, Ruler, Cpu, Wrench, Clock, Award];
 
 const CapabilitiesSection = () => {
   const { t } = useI18n();
