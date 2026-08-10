@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useCallback, useMemo, ReactNode } from "react";
+import { createContext, useContext, useState, useCallback, useMemo, type Context, type ReactNode } from "react";
 import { translations, Locale, Translations } from "./translations";
 
 interface I18nContextType {
@@ -8,7 +8,7 @@ interface I18nContextType {
 }
 
 // Store the context on globalThis so hot-module-reload duplicates share one instance.
-const g = globalThis as unknown as { __EMIGLI_I18N_CTX__?: React.Context<I18nContextType | undefined> };
+const g = globalThis as unknown as { __EMIGLI_I18N_CTX__?: Context<I18nContextType | undefined> };
 const I18nContext =
   g.__EMIGLI_I18N_CTX__ ?? createContext<I18nContextType | undefined>(undefined);
 I18nContext.displayName = "I18nContext";
