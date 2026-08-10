@@ -50,7 +50,7 @@ export const translations = {
       description:
         "Decades of expertise in electromagnetic shielding, backed by cutting-edge manufacturing and rigorous quality control.",
       items: [
-        { title: "120+ dB Attenuation", desc: "Exceeding international shielding standards across all MRI frequencies." },
+        { title: "100+ dB Attenuation", desc: "Exceeding international shielding standards across all MRI frequencies." },
         { title: "Custom Engineering", desc: "Every cage tailored to your facility's exact dimensions and requirements." },
         { title: "Advanced Simulation", desc: "FEM-based electromagnetic modeling ensures performance before fabrication." },
         { title: "Full Installation", desc: "On-site assembly, testing, and commissioning by our specialist teams." },
