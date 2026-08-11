@@ -27,7 +27,7 @@ export const translations = {
         {
           title: "RF Shielded Windows",
           description:
-            "Multi-layer laminated RF shielded windows with copper mesh interlayer, providing clear visibility into the MRI suite without compromising electromagnetic integrity.",
+            "Multi-layer RF shielded windows with special mesh interlayer, providing clear visibility into the MRI suite without compromising electromagnetic integrity.",
           specs: ["Up to 100 dB attenuation", "Anti-glare coating", ""],
         },
         {
