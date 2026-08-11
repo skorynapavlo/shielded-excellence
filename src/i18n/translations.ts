@@ -39,7 +39,7 @@ export const translations = {
         {
           title: "RF Shielded Doors",
           description:
-            "Pneumatic-sealed doors with continuous copper-beryllium finger stock gaskets ensuring consistent shielding performance.",
+            "Doors with continuous special gaskets ensuring consistent shielding performance.",
           specs: ["Up to 100 dB attenuation", "", ""],
         },
       ],
