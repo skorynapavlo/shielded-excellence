@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, Mail } from "lucide-react";
+import { Send, Mail, Instagram, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -74,16 +74,39 @@ const ContactSection = () => {
               </Button>
             </form>
 
-            <div className="mt-6 flex items-center gap-4">
-              <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center shrink-0">
-                <Mail className="w-5 h-5 text-accent" />
+            <div className="mt-6 flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center shrink-0">
+                  <Mail className="w-5 h-5 text-accent" />
+                </div>
+                <a
+                  href={`mailto:${t.contact.email}`}
+                  className="text-foreground text-sm hover:text-accent transition-colors"
+                >
+                  {t.contact.email}
+                </a>
               </div>
-              <a
-                href={`mailto:${t.contact.email}`}
-                className="text-foreground text-sm hover:text-accent transition-colors"
-              >
-                {t.contact.email}
-              </a>
+
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://instagram.com/emigli"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-accent hover:bg-accent hover:text-primary-foreground transition-colors"
+                >
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://facebook.com/emigli"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-accent hover:bg-accent hover:text-primary-foreground transition-colors"
+                >
+                  <Facebook className="w-5 h-5" />
+                </a>
+              </div>
             </div>
           </motion.div>
         </div>
