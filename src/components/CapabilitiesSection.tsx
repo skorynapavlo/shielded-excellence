@@ -18,7 +18,10 @@ const CapabilitiesSection = () => {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {t.capabilities.items.filter((_, i) => ![2, 5].includes(i)).map((c, i) => {
+          {t.capabilities.items
+            .map((c, i) => ({ c, i }))
+            .filter(({ i }) => ![2, 5].includes(i))
+            .map(({ c, i }) => {
             const Icon = icons[i];
             return (
               <motion.div
