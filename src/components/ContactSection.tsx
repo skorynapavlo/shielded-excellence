@@ -32,7 +32,7 @@ const ContactSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <span className="text-sm font-medium tracking-widest uppercase text-muted-foreground">{t.contact.sectionLabel}</span>
+            
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-3 mb-4">
               {t.contact.title}
             </h2>
