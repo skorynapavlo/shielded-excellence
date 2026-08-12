@@ -18,10 +18,14 @@ import cage2 from "@/assets/cage-2.jpg.asset.json";
 import cage3 from "@/assets/cage-3.jpg.asset.json";
 import cage4 from "@/assets/cage-4.jpg.asset.json";
 import cage5 from "@/assets/cage-5.jpg.asset.json";
+import window1 from "@/assets/window-1.jpg.asset.json";
+import window2 from "@/assets/window-2.jpg.asset.json";
 
 const images = [productPanel, productRoom, productDoor];
-const cageGallery = [cage1.url, cage2.url, cage3.url, cage4.url, cage5.url];
-const GALLERY_INDEX = 1;
+const galleries: Record<number, string[]> = {
+  0: [window1.url, window2.url],
+  1: [cage1.url, cage2.url, cage3.url, cage4.url, cage5.url],
+};
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -34,7 +38,8 @@ const fadeUp = {
 
 const ProductsSection = () => {
   const { t } = useI18n();
-  const [galleryOpen, setGalleryOpen] = useState(false);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const activeGallery = openIndex !== null ? galleries[openIndex] : null;
 
   return (
     <section id="products" className="py-24 md:py-32" style={{ background: "var(--section-gradient)" }}>
@@ -60,8 +65,8 @@ const ProductsSection = () => {
               className="group bg-card rounded-lg overflow-hidden border border-border hover:shadow-[var(--card-shadow-hover)] transition-shadow duration-300"
             >
               <div
-                className={`aspect-square overflow-hidden ${i === GALLERY_INDEX ? "cursor-zoom-in" : ""}`}
-                onClick={i === GALLERY_INDEX ? () => setGalleryOpen(true) : undefined}
+                className={`aspect-square overflow-hidden ${galleries[i] ? "cursor-zoom-in" : ""}`}
+                onClick={galleries[i] ? () => setOpenIndex(i) : undefined}
               >
                 <img
                   src={images[i]}
@@ -85,15 +90,15 @@ const ProductsSection = () => {
         </div>
       </div>
 
-      <Dialog open={galleryOpen} onOpenChange={setGalleryOpen}>
+      <Dialog open={openIndex !== null} onOpenChange={(o) => !o && setOpenIndex(null)}>
         <DialogContent className="w-[80vh] max-w-[90vw] h-[80vh] max-h-[90vw] p-0 gap-0 overflow-hidden border-0">
           <Carousel className="w-full h-full">
             <CarouselContent className="h-full ml-0">
-              {cageGallery.map((src, idx) => (
+              {(activeGallery ?? []).map((src, idx) => (
                 <CarouselItem key={idx} className="h-full pl-0">
                   <img
                     src={src}
-                    alt={`${t.products.items[GALLERY_INDEX].title} ${idx + 1}`}
+                    alt={`${openIndex !== null ? t.products.items[openIndex].title : ""} ${idx + 1}`}
                     className="w-full h-full object-cover"
                   />
                 </CarouselItem>
