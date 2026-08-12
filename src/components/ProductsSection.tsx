@@ -19,7 +19,7 @@ import cage3 from "@/assets/cage-3.jpg.asset.json";
 import cage4 from "@/assets/cage-4.jpg.asset.json";
 import cage5 from "@/assets/cage-5.jpg.asset.json";
 import window1 from "@/assets/window-1.jpg.asset.json";
-import window2 from "@/assets/window-2.jpg.asset.json";
+import window2 from "@/assets/window-2b.jpg.asset.json";
 
 const images = [productPanel, productRoom, productDoor];
 const galleries: Record<number, string[]> = {
