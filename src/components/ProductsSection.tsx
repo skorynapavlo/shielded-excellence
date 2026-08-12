@@ -86,18 +86,16 @@ const ProductsSection = () => {
       </div>
 
       <Dialog open={galleryOpen} onOpenChange={setGalleryOpen}>
-        <DialogContent className="max-w-[80vw] w-[80vw] p-6">
-          <Carousel className="w-full">
-            <CarouselContent>
+        <DialogContent className="w-[80vh] max-w-[90vw] h-[80vh] max-h-[90vw] p-0 gap-0 overflow-hidden border-0">
+          <Carousel className="w-full h-full">
+            <CarouselContent className="h-full ml-0">
               {cageGallery.map((src, idx) => (
-                <CarouselItem key={idx}>
-                  <div className="flex items-center justify-center h-[70vh]">
-                    <img
-                      src={src}
-                      alt={`${t.products.items[GALLERY_INDEX].title} ${idx + 1}`}
-                      className="max-h-full max-w-full object-contain rounded-md"
-                    />
-                  </div>
+                <CarouselItem key={idx} className="h-full pl-0">
+                  <img
+                    src={src}
+                    alt={`${t.products.items[GALLERY_INDEX].title} ${idx + 1}`}
+                    className="w-full h-full object-cover"
+                  />
                 </CarouselItem>
               ))}
             </CarouselContent>
