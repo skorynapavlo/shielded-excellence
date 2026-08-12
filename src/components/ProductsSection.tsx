@@ -1,11 +1,27 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { useI18n } from "@/i18n/I18nProvider";
 import ManufacturersTicker from "@/components/ManufacturersTicker";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import productPanel from "@/assets/product-panel.jpg";
 import productRoom from "@/assets/product-room.jpg";
 import productDoor from "@/assets/product-door.jpg";
+import cage1 from "@/assets/cage-1.jpg.asset.json";
+import cage2 from "@/assets/cage-2.jpg.asset.json";
+import cage3 from "@/assets/cage-3.jpg.asset.json";
+import cage4 from "@/assets/cage-4.jpg.asset.json";
+import cage5 from "@/assets/cage-5.jpg.asset.json";
 
 const images = [productPanel, productRoom, productDoor];
+const cageGallery = [cage1.url, cage2.url, cage3.url, cage4.url, cage5.url];
+const GALLERY_INDEX = 1;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -18,6 +34,7 @@ const fadeUp = {
 
 const ProductsSection = () => {
   const { t } = useI18n();
+  const [galleryOpen, setGalleryOpen] = useState(false);
 
   return (
     <section id="products" className="py-24 md:py-32" style={{ background: "var(--section-gradient)" }}>
@@ -42,7 +59,10 @@ const ProductsSection = () => {
               variants={fadeUp}
               className="group bg-card rounded-lg overflow-hidden border border-border hover:shadow-[var(--card-shadow-hover)] transition-shadow duration-300"
             >
-              <div className="aspect-square overflow-hidden">
+              <div
+                className={`aspect-square overflow-hidden ${i === GALLERY_INDEX ? "cursor-zoom-in" : ""}`}
+                onClick={i === GALLERY_INDEX ? () => setGalleryOpen(true) : undefined}
+              >
                 <img
                   src={images[i]}
                   alt={p.title}
@@ -64,6 +84,28 @@ const ProductsSection = () => {
           ))}
         </div>
       </div>
+
+      <Dialog open={galleryOpen} onOpenChange={setGalleryOpen}>
+        <DialogContent className="max-w-[80vw] w-[80vw] p-6">
+          <Carousel className="w-full">
+            <CarouselContent>
+              {cageGallery.map((src, idx) => (
+                <CarouselItem key={idx}>
+                  <div className="flex items-center justify-center h-[70vh]">
+                    <img
+                      src={src}
+                      alt={`${t.products.items[GALLERY_INDEX].title} ${idx + 1}`}
+                      className="max-h-full max-w-full object-contain rounded-md"
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-2" />
+            <CarouselNext className="right-2" />
+          </Carousel>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
