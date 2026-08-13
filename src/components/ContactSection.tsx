@@ -88,6 +88,7 @@ const ContactSection = () => {
               </div>
 
               <div className="flex items-center gap-3">
+                <span className="text-sm text-muted-foreground">{t.contact.followUs}</span>
                 <a
                   href="https://instagram.com/emigli"
                   target="_blank"
