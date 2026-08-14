@@ -103,7 +103,7 @@ const ProductsSection = () => {
                   <img
                     src={src}
                     alt={`${openIndex !== null ? t.products.items[openIndex].title : ""} ${idx + 1}`}
-                    className="w-full h-full object-cover"
+                    className={`w-full h-full ${src === doorC.url ? "object-contain bg-black" : "object-cover"}`}
                   />
                 </CarouselItem>
               ))}
