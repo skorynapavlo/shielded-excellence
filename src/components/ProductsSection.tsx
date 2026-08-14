@@ -10,12 +10,11 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import productRoom from "@/assets/product-room.jpg";
-import cage1 from "@/assets/cage-1.jpg.asset.json";
-import cage2 from "@/assets/cage-2.jpg.asset.json";
-import cage3 from "@/assets/cage-3.jpg.asset.json";
-import cage4 from "@/assets/cage-4.jpg.asset.json";
-import cage5 from "@/assets/cage-5.jpg.asset.json";
+import cage1 from "@/assets/cage-t.jpg.asset.json";
+import cage2 from "@/assets/cage-a.jpg.asset.json";
+import cage3 from "@/assets/cage-b.jpg.asset.json";
+import cage4 from "@/assets/cage-c.jpg.asset.json";
+import cage5 from "@/assets/cage-d.jpg.asset.json";
 import window1 from "@/assets/win-0_title.jpg.asset.json";
 import window2 from "@/assets/win-1.jpg.asset.json";
 import window3 from "@/assets/win-3.jpg.asset.json";
@@ -24,7 +23,7 @@ import doorA from "@/assets/door-a.jpg.asset.json";
 import doorB from "@/assets/door-b.jpg.asset.json";
 import doorC from "@/assets/door-c2.jpg.asset.json";
 
-const images = [window1.url, productRoom, doorT.url];
+const images = [window1.url, cage1.url, doorT.url];
 const galleries: Record<number, string[]> = {
   0: [window1.url, window2.url, window3.url],
   1: [cage1.url, cage2.url, cage3.url, cage4.url, cage5.url],
