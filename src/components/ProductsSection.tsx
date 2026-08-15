@@ -21,7 +21,7 @@ import window3 from "@/assets/win-3.jpg.asset.json";
 import doorT from "@/assets/door-t.jpg.asset.json";
 import doorA from "@/assets/door-a.jpg.asset.json";
 import doorB from "@/assets/door-b.jpg.asset.json";
-import doorC from "@/assets/door-c3.png.asset.json";
+import doorC from "@/assets/door-c4.png.asset.json";
 
 const images = [window1.url, cage1.url, doorT.url];
 const galleries: Record<number, string[]> = {
