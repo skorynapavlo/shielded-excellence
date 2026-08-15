@@ -84,9 +84,7 @@ export const translations = {
       title: "Let's Discuss Your Project",
       description:
         "Whether you need a custom enclosure quote or technical consultation, our engineering team is ready to help.",
-      phone: "+1 (555) 012-3456",
        email: "info@emigli.com",
-      address: "1200 Industrial Pkwy, Suite 300, Denver, CO 80202",
       nameLabel: "Name",
       namePlaceholder: "Your name",
       companyLabel: "Company",
@@ -188,9 +186,7 @@ export const translations = {
       title: "Обговоримо ваш проект",
       description:
         "Для прорахунку вартості проєкту, або у разі необхідності технічної консультації — наша інженерна команда готова допомогти.",
-       phone: "+1 (555) 012-3456",
        email: "info@emigli.com",
-       address: "1200 Industrial Pkwy, Suite 300, Denver, CO 80202",
       nameLabel: "Ім'я",
       namePlaceholder: "Ваше ім'я",
       companyLabel: "Компанія",
