@@ -20,7 +20,7 @@ export const translations = {
     },
     products: {
       sectionLabel: "Portfolio",
-      title: "Our Product Range",
+      title: "MRI RF Shielding — Manufactured in Ukraine",
       description:
         "EMIgli designs and manufactures RF shielding systems and components in Ukraine for MRI facilities worldwide.",
       items: [
@@ -122,7 +122,7 @@ export const translations = {
     },
     products: {
       sectionLabel: "Портфоліо",
-      title: "Наші рішення",
+      title: "РЧ-екранування МРТ — Вироблено в Україні",
       description:
         "EMIgli розробляє та виготовляє системи РЧ-екранування та компоненти в Україні для об'єктів МРТ по всьому світу.",
       items: [
