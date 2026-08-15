@@ -21,7 +21,7 @@ import window3 from "@/assets/win-3.jpg.asset.json";
 import doorT from "@/assets/door-t.jpg.asset.json";
 import doorA from "@/assets/door-a.jpg.asset.json";
 import doorB from "@/assets/door-b.jpg.asset.json";
-import doorC from "@/assets/door-c2.jpg.asset.json";
+import doorC from "@/assets/door-c3.png.asset.json";
 
 const images = [window1.url, cage1.url, doorT.url];
 const galleries: Record<number, string[]> = {
@@ -102,7 +102,7 @@ const ProductsSection = () => {
                   <img
                     src={src}
                     alt={`${openIndex !== null ? t.products.items[openIndex].title : ""} ${idx + 1}`}
-                    className={`w-full h-full ${src === doorC.url ? "object-contain bg-black" : "object-cover"}`}
+                    className="w-full h-full object-cover"
                   />
                 </CarouselItem>
               ))}
