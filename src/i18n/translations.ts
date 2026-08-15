@@ -22,7 +22,7 @@ export const translations = {
       sectionLabel: "Portfolio",
       title: "Our Product Range",
       description:
-        "Each solution is precision-engineered to meet the most demanding electromagnetic shielding requirements in modern MRI environments.",
+        "EMIgli designs and manufactures RF shielding systems and components in Ukraine for MRI facilities worldwide.",
       items: [
         {
           title: "RF Shielded Windows",
@@ -124,7 +124,7 @@ export const translations = {
       sectionLabel: "Портфоліо",
       title: "Наші рішення",
       description:
-        "Кожне рішення спроектовано з високою точністю для відповідності найвищим стандартам електромагнітного екранування в сучасних МРТ-середовищах.",
+        "EMIgli розробляє та виготовляє системи РЧ-екранування та компоненти в Україні для об'єктів МРТ по всьому світу.",
       items: [
          {
            title: "РЧ-екрановані вікна",
