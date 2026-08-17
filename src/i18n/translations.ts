@@ -5,7 +5,6 @@ export const translations = {
     nav: {
       products: "Products",
       capabilities: "Capabilities",
-      testimonials: "Testimonials",
       contact: "Contact",
       getQuote: "Get a Quote",
     },
@@ -48,31 +47,12 @@ export const translations = {
       sectionLabel: "",
       title: "Why Choose Us",
       description:
-        "Decades of expertise in electromagnetic shielding, backed by cutting-edge manufacturing and rigorous quality control.",
+        "Years of expertise in electromagnetic shielding, backed by cutting-edge manufacturing and rigorous quality control.",
       items: [
         { title: "Up to 100 dB Attenuation", desc: "Designed to meet the shielding requirements of leading MRI manufacturers." },
         { title: "Custom Engineering", desc: "Every cage tailored to your facility's exact dimensions and requirements." },
         { title: "Full-service solutions", desc: "We deliver turnkey projects — from site measurements and design to manufacturing, delivery, and installation." },
         { title: "Fast Turnaround", desc: "Streamlined production delivering from concept to install in 4–8 weeks." },
-      ],
-    },
-    testimonials: {
-      items: [
-        {
-          quote: "ShieldRF delivered a flawless 3T MRI enclosure on a tight timeline. Their attenuation results exceeded our specifications by 15 dB.",
-          name: "Dr. Helena Kessler",
-          role: "Head of Radiology, Munich University Hospital",
-        },
-        {
-          quote: "The modular panel system allowed us to retrofit our existing suite without major construction. Downtime was under 48 hours.",
-          name: "James Thornton",
-          role: "Facilities Director, Westfield Medical Center",
-        },
-        {
-          quote: "From simulation to commissioning, their engineering team was outstanding. We've now specified ShieldRF for all our new MRI installations.",
-          name: "Prof. Akira Tanaka",
-          role: "Chief Medical Physicist, Osaka Imaging Institute",
-        },
       ],
     },
     contact: {
@@ -103,7 +83,6 @@ export const translations = {
     nav: {
       products: "Продукція",
       capabilities: "Можливості",
-      testimonials: "Відгуки",
       contact: "Контакти",
       getQuote: "Отримати пропозицію",
     },
@@ -152,25 +131,6 @@ export const translations = {
         { title: "Індивідуальне проектування", desc: "Кожна клітка адаптована до точних розмірів та вимог вашого об'єкта." },
         { title: "Повний цикл робіт", desc: "Реалізуємо проєкти під ключ — від замірів і проєктування до виробництва, доставки та монтажу." },
         { title: "Швидке виконання", desc: "Оптимізоване виробництво: від концепції до монтажу за 4–8 тижнів." },
-      ],
-    },
-    testimonials: {
-      items: [
-        {
-          quote: "ShieldRF забезпечили бездоганний корпус для МРТ 3Т у стислі терміни. Їхні результати ослаблення перевищили наші специфікації на 15 дБ.",
-          name: "Д-р Хелена Кесслер",
-          role: "Керівник радіології, Мюнхенська університетська лікарня",
-        },
-        {
-          quote: "Модульна панельна система дозволила нам модернізувати існуючий комплекс без масштабного будівництва. Простій склав менше 48 годин.",
-          name: "Джеймс Торнтон",
-          role: "Директор з об'єктів, Медичний центр Вестфілд",
-        },
-        {
-          quote: "Від моделювання до введення в експлуатацію їхня інженерна команда була видатною. Тепер ми обираємо ShieldRF для всіх нових установок МРТ.",
-          name: "Проф. Акіра Танака",
-          role: "Головний медичний фізик, Інститут візуалізації Осака",
-        },
       ],
     },
     contact: {
