@@ -45,7 +45,7 @@ export const translations = {
     },
     capabilities: {
       sectionLabel: "",
-      title: "Why Choose Us",
+      title: "Why EMIgli",
       description:
         "Years of expertise in electromagnetic shielding, backed by cutting-edge manufacturing and rigorous quality control.",
       items: [
@@ -123,7 +123,7 @@ export const translations = {
     },
     capabilities: {
       sectionLabel: "",
-      title: "Чому обирають нас",
+      title: "Чому обирають Еміглі",
       description:
         "Багато років досвіду в електромагнітному екрануванні підкріплені передовим виробництвом та суворим контролем якості.",
       items: [
