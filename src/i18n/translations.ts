@@ -57,8 +57,6 @@ export const translations = {
       ],
     },
     testimonials: {
-      sectionLabel: "Testimonials",
-      title: "Trusted by Leading Institutions",
       items: [
         {
           quote: "ShieldRF delivered a flawless 3T MRI enclosure on a tight timeline. Their attenuation results exceeded our specifications by 15 dB.",
@@ -157,8 +155,6 @@ export const translations = {
       ],
     },
     testimonials: {
-      sectionLabel: "Відгуки",
-      title: "Довіра провідних установ",
       items: [
         {
           quote: "ShieldRF забезпечили бездоганний корпус для МРТ 3Т у стислі терміни. Їхні результати ослаблення перевищили наші специфікації на 15 дБ.",
