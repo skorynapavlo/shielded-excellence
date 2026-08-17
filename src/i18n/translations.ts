@@ -50,7 +50,7 @@ export const translations = {
       description:
         "Decades of expertise in electromagnetic shielding, backed by cutting-edge manufacturing and rigorous quality control.",
       items: [
-        { title: "100+ dB Attenuation", desc: "Designed to meet the shielding requirements of leading MRI manufacturers." },
+        { title: "Up to 100 dB Attenuation", desc: "Designed to meet the shielding requirements of leading MRI manufacturers." },
         { title: "Custom Engineering", desc: "Every cage tailored to your facility's exact dimensions and requirements." },
         { title: "Full-service solutions", desc: "We deliver turnkey projects — from site measurements and design to manufacturing, delivery, and installation." },
         { title: "Fast Turnaround", desc: "Streamlined production delivering from concept to install in 4–8 weeks." },
@@ -148,7 +148,7 @@ export const translations = {
       description:
         "Багато років досвіду в електромагнітному екрануванні підкріплені передовим виробництвом та суворим контролем якості.",
       items: [
-        { title: "100+ дБ ослаблення", desc: "Відповідність вимогам екранування провідних виробників МРТ." },
+        { title: "До 100 дБ ослаблення", desc: "Відповідність вимогам екранування провідних виробників МРТ." },
         { title: "Індивідуальне проектування", desc: "Кожна клітка адаптована до точних розмірів та вимог вашого об'єкта." },
         { title: "Повний цикл робіт", desc: "Реалізуємо проєкти під ключ — від замірів і проєктування до виробництва, доставки та монтажу." },
         { title: "Швидке виконання", desc: "Оптимізоване виробництво: від концепції до монтажу за 4–8 тижнів." },
