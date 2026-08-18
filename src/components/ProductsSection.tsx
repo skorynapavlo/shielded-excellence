@@ -47,6 +47,7 @@ const ProductsSection = () => {
 
   return (
     <section id="products" className="py-24 md:py-32" style={{ background: "var(--section-gradient)" }}>
+      <div className="container">
       <div className="text-center mx-auto mb-16">
         <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-3 mb-4 md:whitespace-nowrap">
           {t.products.title}
