@@ -52,7 +52,7 @@ const ProductsSection = () => {
         <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-3 mb-4 md:whitespace-nowrap">
           {t.products.title}
         </h2>
-        <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+        <p className="text-muted-foreground leading-relaxed max-w-3xl mx-auto">
           {t.products.description}
         </p>
      </div>
