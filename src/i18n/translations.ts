@@ -10,8 +10,8 @@ export const translations = {
     },
     hero: {
       badge: "",
-      titleStart: "Engineered RF Cages for",
-      titleHighlight: "MRI Excellence",
+      titleStart: "Engineered RF Cages",
+      titleHighlight: "for MRI Excellence",
       description:
         "Custom\u00a0electromagnetic shielding solutions designed for the best MRI performance, patient safety, and regulatory compliance.",
       viewProducts: "View Products",
