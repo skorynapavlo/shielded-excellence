@@ -47,14 +47,14 @@ const ProductsSection = () => {
 
   return (
     <section id="products" className="py-24 md:py-32" style={{ background: "var(--section-gradient)" }}>
-      <div className="container">
-        <div className="text-center max-w-none mx-auto mb-16">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-3 mb-4 md:whitespace-nowrap">
-            {t.products.title}
-          </h2>
-          <p className="text-muted-foreground leading-relaxed">{t.products.description}</p>
-        </div>
-
+      <div className="text-center mx-auto mb-16">
+        <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-3 mb-4 md:whitespace-nowrap">
+          {t.products.title}
+        </h2>
+        <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+          {t.products.description}
+        </p>
+     </div>
         <ManufacturersTicker />
 
         <div className="grid md:grid-cols-3 gap-8">
