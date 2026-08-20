@@ -82,16 +82,16 @@ const ContactSection = () => {
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
                   <label htmlFor="contact-name" className="text-sm font-medium text-foreground mb-1.5 block">{t.contact.nameLabel}</label>
-                  <Input id="contact-name" name="name" placeholder={t.contact.namePlaceholder} required />
+                  <Input id="contact-name" name="name" autoComplete="name" placeholder={t.contact.namePlaceholder} required />
                 </div>
                 <div>
                   <label htmlFor="contact-company" className="text-sm font-medium text-foreground mb-1.5 block">{t.contact.companyLabel}</label>
-                  <Input id="contact-company" name="company" placeholder={t.contact.companyPlaceholder} />
+                  <Input id="contact-company" name="company" autoComplete="organization" placeholder={t.contact.companyPlaceholder} />
                 </div>
               </div>
               <div>
                 <label htmlFor="contact-email" className="text-sm font-medium text-foreground mb-1.5 block">{t.contact.emailLabel}</label>
-                <Input id="contact-email" name="email" type="email" placeholder={t.contact.emailPlaceholder} required />
+                <Input id="contact-email" name="email" type="email" autoComplete="email" placeholder={t.contact.emailPlaceholder} required />
               </div>
               <div>
                 <label htmlFor="contact-details" className="text-sm font-medium text-foreground mb-1.5 block">{t.contact.detailsLabel}</label>
