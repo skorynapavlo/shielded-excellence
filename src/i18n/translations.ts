@@ -60,7 +60,7 @@ export const translations = {
       title: "Let's Discuss Your Project",
       description:
         "Whether you need a custom enclosure quote or technical consultation, our engineering team is ready to help.",
-       email: "info@emigli.com",
+      email: "info@emigli.com",
       nameLabel: "Name",
       namePlaceholder: "Your name",
       companyLabel: "Company",
@@ -74,6 +74,8 @@ export const translations = {
       followUs: "Follow us",
       toastTitle: "Message sent!",
       toastDescription: "We'll get back to you within 24 hours.",
+      errorTitle: "Message not sent",
+      errorDescription: "Something went wrong. Please try again or email us directly.",
     },
     footer: {
       tagline: "Precision RF Shielding for MRI Systems",
@@ -101,24 +103,24 @@ export const translations = {
       description:
         "EMIgli розробляє та виготовляє індивідуальні системи РЧ-екранування (клітки Фарадея) та компоненти в Україні для об’єктів МРТ по всьому світу. Наші рішення включають РЧ-екрановані кімнати, екрановані двері, екрановані вікна та квенч-труби, з повним супроводом проєкту — від проєктування та виробництва до монтажу.",
       items: [
-         {
-           title: "РЧ-екрановані вікна",
-           description:
-             "Вікна з двома шарами спеціальної сітки всередині для стабільного екранування.",
-           specs: ["До 100 дБ ослаблення", "Антиблікове покриття", ""],
-         },
-         {
-           title: "РЧ-клітка",
-            description:
-              "Екрановані кімнати для систем МРТ 0.2T - 3Т. Повна установка та введення в експлуатацію включені.",
-           specs: ["0.2T – 3T сумісність", "Комплексна поставка", ""],
-         },
-         {
-           title: "РЧ-екрановані двері",
-           description:
-             "Двері зі спеціальним ущільненням для стабільного екранування.",
-           specs: ["До 100 дБ ослаблення", "", ""],
-         },
+        {
+          title: "РЧ-екрановані вікна",
+          description:
+            "Вікна з двома шарами спеціальної сітки всередині для стабільного екранування.",
+          specs: ["До 100 дБ ослаблення", "Антиблікове покриття", ""],
+        },
+        {
+          title: "РЧ-клітка",
+          description:
+            "Екрановані кімнати для систем МРТ 0.2T - 3Т. Повна установка та введення в експлуатацію включені.",
+          specs: ["0.2T – 3T сумісність", "Комплексна поставка", ""],
+        },
+        {
+          title: "РЧ-екрановані двері",
+          description:
+            "Двері зі спеціальним ущільненням для стабільного екранування.",
+          specs: ["До 100 дБ ослаблення", "", ""],
+        },
       ],
     },
     capabilities: {
@@ -138,7 +140,7 @@ export const translations = {
       title: "Обговоримо ваш проект",
       description:
         "Для прорахунку вартості проєкту, або у разі необхідності технічної консультації — наша інженерна команда готова допомогти.",
-       email: "info@emigli.com",
+      email: "info@emigli.com",
       nameLabel: "Ім'я",
       namePlaceholder: "Ваше ім'я",
       companyLabel: "Компанія",
@@ -152,6 +154,8 @@ export const translations = {
       followUs: "Стежте за нами",
       toastTitle: "Повідомлення надіслано!",
       toastDescription: "Ми зв'яжемося з вами протягом 24 годин.",
+      errorTitle: "Не вдалося надіслати повідомлення",
+      errorDescription: "Сталася помилка. Спробуйте ще раз або напишіть нам напряму на email.",
     },
     footer: {
       tagline: "Високоякісне РЧ-екранування для систем МРТ",
