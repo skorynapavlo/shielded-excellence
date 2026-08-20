@@ -7,19 +7,48 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { useI18n } from "@/i18n/I18nProvider";
 
+const FORM_ENDPOINT = "https://formsubmit.co/ajax/info@emigli.com";
+
 const ContactSection = () => {
   const { toast } = useToast();
   const { t } = useI18n();
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    formData.set("_subject", "New EMIGLI website inquiry");
+    formData.set("_captcha", "true");
+    formData.set("_template", "table");
+
+    try {
+      const response = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
+
       toast({ title: t.contact.toastTitle, description: t.contact.toastDescription });
-      (e.target as HTMLFormElement).reset();
-    }, 1000);
+      form.reset();
+    } catch {
+      toast({
+        title: t.contact.errorTitle,
+        description: t.contact.errorDescription,
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -32,7 +61,6 @@ const ContactSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-3 mb-4">
               {t.contact.title}
             </h2>
@@ -53,21 +81,21 @@ const ContactSection = () => {
             >
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="text-sm font-medium text-foreground mb-1.5 block">{t.contact.nameLabel}</label>
-                  <Input placeholder={t.contact.namePlaceholder} required />
+                  <label htmlFor="contact-name" className="text-sm font-medium text-foreground mb-1.5 block">{t.contact.nameLabel}</label>
+                  <Input id="contact-name" name="name" placeholder={t.contact.namePlaceholder} required />
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-foreground mb-1.5 block">{t.contact.companyLabel}</label>
-                  <Input placeholder={t.contact.companyPlaceholder} />
+                  <label htmlFor="contact-company" className="text-sm font-medium text-foreground mb-1.5 block">{t.contact.companyLabel}</label>
+                  <Input id="contact-company" name="company" placeholder={t.contact.companyPlaceholder} />
                 </div>
               </div>
               <div>
-                <label className="text-sm font-medium text-foreground mb-1.5 block">{t.contact.emailLabel}</label>
-                <Input type="email" placeholder={t.contact.emailPlaceholder} required />
+                <label htmlFor="contact-email" className="text-sm font-medium text-foreground mb-1.5 block">{t.contact.emailLabel}</label>
+                <Input id="contact-email" name="email" type="email" placeholder={t.contact.emailPlaceholder} required />
               </div>
               <div>
-                <label className="text-sm font-medium text-foreground mb-1.5 block">{t.contact.detailsLabel}</label>
-                <Textarea placeholder={t.contact.detailsPlaceholder} rows={5} required />
+                <label htmlFor="contact-details" className="text-sm font-medium text-foreground mb-1.5 block">{t.contact.detailsLabel}</label>
+                <Textarea id="contact-details" name="message" placeholder={t.contact.detailsPlaceholder} rows={5} required />
               </div>
               <Button type="submit" className="w-full" disabled={loading}>
                 {loading ? t.contact.sending : <>{t.contact.send} <Send className="ml-2 w-4 h-4" /></>}
