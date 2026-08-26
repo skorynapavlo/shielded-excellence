@@ -1,15 +1,15 @@
-import siemensLogo from "@/assets/siemens-healthineers-logo.svg.asset.json";
-import geLogo from "@/assets/ge-healthcare-logo.svg.asset.json";
-import philipsLogo from "@/assets/philips-logo.svg.asset.json";
-import canonLogo from "@/assets/canon-wordmark.svg.asset.json";
-import fujifilmLogo from "@/assets/fujifilm-logo.svg.asset.json";
+import siemensLogo from "@/assets/siemens-healthineers-logo.svg";
+import geLogo from "@/assets/ge-healthcare-logo.svg";
+import philipsLogo from "@/assets/philips-logo.svg";
+import canonLogo from "@/assets/canon-wordmark.svg";
+import fujifilmLogo from "@/assets/fujifilm-logo.svg";
 
 const logos = [
-  { src: siemensLogo.url, alt: "Siemens Healthineers" },
-  { src: geLogo.url, alt: "GE HealthCare" },
-  { src: philipsLogo.url, alt: "Philips" },
-  { src: canonLogo.url, alt: "Canon Medical Systems" },
-  { src: fujifilmLogo.url, alt: "Fujifilm Healthcare" },
+  { src: siemensLogo, alt: "Siemens Healthineers" },
+  { src: geLogo, alt: "GE HealthCare" },
+  { src: philipsLogo, alt: "Philips" },
+  { src: canonLogo, alt: "Canon Medical Systems" },
+  { src: fujifilmLogo, alt: "Fujifilm Healthcare" },
 ];
 
 const ManufacturersTicker = () => {

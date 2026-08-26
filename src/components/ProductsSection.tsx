@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { useI18n } from "@/i18n/I18nProvider";
 import ManufacturersTicker from "@/components/ManufacturersTicker";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import {
   Carousel,
   CarouselContent,
@@ -10,25 +10,25 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import cage1 from "@/assets/cage-t.jpg.asset.json";
-import cage2 from "@/assets/cage-a.jpg.asset.json";
-import cage3 from "@/assets/cage-b.jpg.asset.json";
-import cage4 from "@/assets/cage-c.jpg.asset.json";
-import cage5 from "@/assets/cage-d.jpg.asset.json";
-import window1 from "@/assets/win-0_title.jpg.asset.json";
-import window2 from "@/assets/win-1.jpg.asset.json";
-import window3 from "@/assets/win-3.jpg.asset.json";
-import window4 from "@/assets/win-4.jpg.asset.json";
-import doorT from "@/assets/door-t.jpg.asset.json";
-import doorA from "@/assets/door-a.jpg.asset.json";
-import doorB from "@/assets/door-b.jpg.asset.json";
-import doorC from "@/assets/door-c4.png.asset.json";
+import cage1 from "@/assets/cage-t.jpg";
+import cage2 from "@/assets/cage-a.jpg";
+import cage3 from "@/assets/cage-b.jpg";
+import cage4 from "@/assets/cage-c.jpg";
+import cage5 from "@/assets/cage-d.jpg";
+import window1 from "@/assets/win-0_title.jpg";
+import window2 from "@/assets/win-1.jpg";
+import window3 from "@/assets/win-3.jpg";
+import window4 from "@/assets/win-4.jpg";
+import doorT from "@/assets/door-t.jpg";
+import doorA from "@/assets/door-a.jpg";
+import doorB from "@/assets/door-b.jpg";
+import doorC from "@/assets/door-c4.png";
 
-const images = [window1.url, cage1.url, doorT.url];
+const images = [window1, cage1, doorT];
 const galleries: Record<number, string[]> = {
-  0: [window1.url, window2.url, window3.url, window4.url],
-  1: [cage1.url, cage2.url, cage3.url, cage4.url, cage5.url],
-  2: [doorT.url, doorA.url, doorB.url, doorC.url],
+  0: [window1, window2, window3, window4],
+  1: [cage1, cage2, cage3, cage4, cage5],
+  2: [doorT, doorA, doorB, doorC],
 };
 
 const fadeUp = {
@@ -49,7 +49,7 @@ const ProductsSection = () => {
     <section id="products" className="py-24 md:py-32" style={{ background: "var(--section-gradient)" }}>
       <div className="container">
       <div className="text-center mx-auto mb-16">
-        <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-3 mb-4 md:whitespace-nowrap">
+        <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-3 mb-4">
           {t.products.title}
         </h2>
         <p className="text-muted-foreground leading-relaxed max-w-3xl mx-auto">
@@ -97,6 +97,9 @@ const ProductsSection = () => {
 
       <Dialog open={openIndex !== null} onOpenChange={(o) => !o && setOpenIndex(null)}>
         <DialogContent className="w-[80vh] max-w-[90vw] h-[80vh] max-h-[90vw] p-0 gap-0 overflow-hidden border-0">
+          <DialogTitle className="sr-only">
+            {openIndex !== null ? t.products.items[openIndex].title : ""}
+          </DialogTitle>
           <Carousel className="w-full h-full">
             <CarouselContent className="h-full ml-0">
               {(activeGallery ?? []).map((src, idx) => (
