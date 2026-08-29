@@ -111,6 +111,11 @@ const ContactSection = () => {
                 </div>
                 <a
                   href={`mailto:${t.contact.email}`}
+                  onClick={() => {
+                    (window as Window & {
+                      gtag?: (...args: unknown[]) => void;
+                    }).gtag?.("event", "email_click");
+                  }}
                   className="text-foreground text-sm hover:text-accent transition-colors"
                 >
                   {t.contact.email}
