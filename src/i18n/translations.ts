@@ -10,8 +10,8 @@ export const translations = {
     },
     hero: {
       badge: "",
-      titleStart: "Engineered RF Cages for",
-      titleHighlight: "MRI Excellence",
+      titleStart: "Engineered",
+      titleHighlight: "MRI RF Shielding",
       description:
         "Custom\u00a0electromagnetic shielding solutions designed for the best MRI performance, patient safety, and regulatory compliance.",
       viewProducts: "View Products",
@@ -90,8 +90,8 @@ export const translations = {
     },
     hero: {
       badge: "",
-      titleStart: "Високоякісне екранування",
-      titleHighlight: "для Вашого МРТ",
+      titleStart: "для систем МРТ",
+      titleHighlight: "РЧ-екранування",
       description:
         "Провідні рішення електромагнітного екранування для оптимальної роботи МРТ, безпеки пацієнтів та відповідності нормативним вимогам.",
       viewProducts: "Переглянути продукцію",

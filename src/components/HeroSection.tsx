@@ -31,8 +31,17 @@ const HeroSection = () => {
           )}
 
           <h1 className="font-display text-4xl md:text-6xl font-bold text-primary-foreground leading-tight mb-6">
-            {t.hero.titleStart}{" "}
-            <span className="block text-gradient">{t.hero.titleHighlight}</span>
+            {t.hero.titleStart === "для систем МРТ" ? (
+              <>
+                <span className="block text-gradient">{t.hero.titleHighlight}</span>
+                <span className="block">{t.hero.titleStart}</span>
+              </>
+            ) : (
+              <>
+                {t.hero.titleStart}{" "}
+                <span className="block text-gradient">{t.hero.titleHighlight}</span>
+              </>
+            )}
           </h1>
 
           <p className="text-lg md:text-xl text-primary-foreground/75 mb-10 max-w-xl leading-relaxed text-justify">
