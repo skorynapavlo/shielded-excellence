@@ -38,9 +38,17 @@ const ContactSection = () => {
         throw new Error("Form submission failed");
       }
 
-      (window as Window & {
+      const analyticsWindow = window as Window & {
+        dataLayer?: unknown[];
         gtag?: (...args: unknown[]) => void;
-      }).gtag?.("event", "generate_lead");
+      };
+
+      analyticsWindow.dataLayer = analyticsWindow.dataLayer || [];
+      analyticsWindow.dataLayer.push({
+        event: "generate_lead",
+      });
+
+      analyticsWindow.gtag?.("event", "generate_lead");
 
       toast({ title: t.contact.toastTitle, description: t.contact.toastDescription });
       form.reset();
