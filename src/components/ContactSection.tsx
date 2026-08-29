@@ -38,6 +38,10 @@ const ContactSection = () => {
         throw new Error("Form submission failed");
       }
 
+      (window as Window & {
+        gtag?: (...args: unknown[]) => void;
+      }).gtag?.("event", "generate_lead");
+
       toast({ title: t.contact.toastTitle, description: t.contact.toastDescription });
       form.reset();
     } catch {
