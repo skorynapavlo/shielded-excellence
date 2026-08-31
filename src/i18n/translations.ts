@@ -10,8 +10,8 @@ export const translations = {
     },
     hero: {
       badge: "",
-      titleStart: "Engineered",
-      titleHighlight: "MRI RF Shielding",
+      titleStart: "MRI RF Shielding",
+      titleHighlight: "Manufactured in Ukraine",
       description:
         "Ukrainian manufacturer of Faraday cages and MRI RF shielding systems. We design and manufacture in Ukraine — for projects in Ukraine and worldwide.",
       viewProducts: "View Products",
