@@ -23,12 +23,23 @@ import doorT from "@/assets/door-t.jpg";
 import doorA from "@/assets/door-a.jpg";
 import doorB from "@/assets/door-b.jpg";
 import doorC from "@/assets/door-c4.png";
+import siemensLogo from "@/assets/siemens-healthineers-logo.svg";
+import geLogo from "@/assets/ge-healthcare-logo.svg";
+import philipsLogo from "@/assets/philips-logo.svg";
+import fujifilmLogo from "@/assets/fujifilm-logo.svg";
 
 const images = [window1, cage1, doorT];
 const galleries: Record<number, string[]> = {
   0: [window1, window2, window3, window4],
   1: [cage1, cage2, cage3, cage4, cage5],
   2: [doorT, doorA, doorB, doorC],
+};
+
+const manufacturerLogos: Record<string, { src: string; alt: string }> = {
+  siemens: { src: siemensLogo, alt: "Siemens Healthineers" },
+  ge: { src: geLogo, alt: "GE HealthCare" },
+  philips: { src: philipsLogo, alt: "Philips" },
+  fujifilm: { src: fujifilmLogo, alt: "Fujifilm Healthcare" },
 };
 
 const fadeUp = {
@@ -44,19 +55,19 @@ const ProductsSection = () => {
   const { t } = useI18n();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const activeGallery = openIndex !== null ? galleries[openIndex] : null;
-  const project = openIndex === 1 ? t.products.items[1].project : null;
+  const projects = openIndex === 1 ? t.products.items[1].projects : null;
 
   return (
     <section id="products" className="py-24 md:py-32" style={{ background: "var(--section-gradient)" }}>
       <div className="container">
-      <div className="text-center mx-auto mb-16">
-        <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-3 mb-4">
-          {t.products.title}
-        </h2>
-        <p className="text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-          {t.products.description}
-        </p>
-     </div>
+        <div className="text-center mx-auto mb-16">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-3 mb-4">
+            {t.products.title}
+          </h2>
+          <p className="text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+            {t.products.description}
+          </p>
+        </div>
         <ManufacturersTicker />
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -103,23 +114,37 @@ const ProductsSection = () => {
           </DialogTitle>
           <Carousel className="w-full h-full">
             <CarouselContent className="h-full ml-0">
-              {(activeGallery ?? []).map((src, idx) => (
-                <CarouselItem key={idx} className="h-full pl-0 relative">
-                  <img
-                    src={src}
-                    alt={`${openIndex !== null ? t.products.items[openIndex].title : ""} ${idx + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                  {project && project.name && project.location && (
-                    <div className="absolute inset-x-0 bottom-0 p-4 md:p-6 bg-gradient-to-t from-black/80 via-black/45 to-transparent text-white pointer-events-none">
-                      <div className="max-w-3xl">
-                        <p className="text-sm md:text-base font-medium tracking-wide">{project.name}</p>
-                        <p className="text-xs md:text-sm text-white/80 mt-1">{project.location}</p>
+              {(activeGallery ?? []).map((src, idx) => {
+                const project = projects?.[idx];
+                const logo = project ? manufacturerLogos[project.mriManufacturer] : null;
+
+                return (
+                  <CarouselItem key={idx} className="h-full pl-0 relative">
+                    <img
+                      src={src}
+                      alt={`${openIndex !== null ? t.products.items[openIndex].title : ""} ${idx + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                    {project && (
+                      <div className="absolute inset-x-0 bottom-0 p-4 md:p-6 bg-gradient-to-t from-black/85 via-black/55 to-transparent text-white pointer-events-none">
+                        <div className="max-w-3xl">
+                          <p className="text-sm md:text-base font-medium tracking-wide">{project.name}</p>
+                          <p className="text-xs md:text-sm text-white/80 mt-1">{project.location}</p>
+                          {logo && (
+                            <div className="mt-3 h-7 md:h-9 flex items-center">
+                              <img
+                                src={logo.src}
+                                alt={logo.alt}
+                                className="h-full w-auto max-w-[110px] object-contain"
+                              />
+                            </div>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  )}
-                </CarouselItem>
-              ))}
+                    )}
+                  </CarouselItem>
+                );
+              })}
             </CarouselContent>
             <CarouselPrevious className="left-2" />
             <CarouselNext className="right-2" />
