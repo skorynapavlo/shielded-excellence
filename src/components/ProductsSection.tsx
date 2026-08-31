@@ -44,6 +44,7 @@ const ProductsSection = () => {
   const { t } = useI18n();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const activeGallery = openIndex !== null ? galleries[openIndex] : null;
+  const project = openIndex === 1 ? t.products.items[1].project : null;
 
   return (
     <section id="products" className="py-24 md:py-32" style={{ background: "var(--section-gradient)" }}>
@@ -103,12 +104,20 @@ const ProductsSection = () => {
           <Carousel className="w-full h-full">
             <CarouselContent className="h-full ml-0">
               {(activeGallery ?? []).map((src, idx) => (
-                <CarouselItem key={idx} className="h-full pl-0">
+                <CarouselItem key={idx} className="h-full pl-0 relative">
                   <img
                     src={src}
                     alt={`${openIndex !== null ? t.products.items[openIndex].title : ""} ${idx + 1}`}
                     className="w-full h-full object-cover"
                   />
+                  {project && project.name && project.location && (
+                    <div className="absolute inset-x-0 bottom-0 p-4 md:p-6 bg-gradient-to-t from-black/80 via-black/45 to-transparent text-white pointer-events-none">
+                      <div className="max-w-3xl">
+                        <p className="text-sm md:text-base font-medium tracking-wide">{project.name}</p>
+                        <p className="text-xs md:text-sm text-white/80 mt-1">{project.location}</p>
+                      </div>
+                    </div>
+                  )}
                 </CarouselItem>
               ))}
             </CarouselContent>
