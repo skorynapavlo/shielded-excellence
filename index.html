@@ -34,28 +34,101 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": [
-    "Organization",
-    "Manufacturer"
-  ],
-  "name": "EMIgli",
-  "url": "https://emigli.com",
-  "description": "EMIgli designs and manufactures MRI RF shielding systems and components in Ukraine for MRI facilities worldwide.",
-  "email": "info@emigli.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "Ukraine"
-  },
-  "knowsAbout": [
-    "MRI RF shielding systems",
-    "MRI Faraday cages",
-    "RF shielded doors",
-    "RF shielded windows",
-    "Quench pipes"
-  ],
-  "inLanguage": [
-    "en",
-    "uk"
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://emigli.com/#organization",
+      "name": "EMIgli",
+      "url": "https://emigli.com/",
+      "description": "Ukrainian manufacturer of Faraday cages and MRI RF shielding systems. EMIGLI designs and manufactures in Ukraine for projects in Ukraine and worldwide.",
+      "email": "info@emigli.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "UA"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Ukraine"
+        },
+        {
+          "@type": "Place",
+          "name": "Worldwide"
+        }
+      ],
+      "knowsAbout": [
+        "Faraday cages",
+        "MRI Faraday cages",
+        "MRI RF shielding",
+        "MRI RF shielding systems",
+        "RF shielded doors",
+        "RF shielded windows",
+        "MRI quench pipes",
+        "electromagnetic shielding"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://emigli.com/#website",
+      "url": "https://emigli.com/",
+      "name": "EMIgli",
+      "publisher": {
+        "@id": "https://emigli.com/#organization"
+      },
+      "inLanguage": [
+        "en",
+        "uk"
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://emigli.com/#mri-faraday-cages",
+      "name": "MRI Faraday Cages",
+      "description": "Custom Faraday cages and RF shielding enclosures for MRI facilities, designed and manufactured in Ukraine by EMIGLI.",
+      "manufacturer": {
+        "@id": "https://emigli.com/#organization"
+      },
+      "keywords": [
+        "клітка Фарадея",
+        "клітка Фарадея для МРТ",
+        "Faraday cage",
+        "MRI Faraday cage",
+        "MRI RF shielding"
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://emigli.com/#mri-rf-shielding",
+      "name": "MRI RF Shielding Systems",
+      "description": "Custom MRI RF shielding systems designed and manufactured in Ukraine by EMIGLI.",
+      "manufacturer": {
+        "@id": "https://emigli.com/#organization"
+      },
+      "keywords": [
+        "MRI RF shielding",
+        "RF shielding for MRI",
+        "РЧ-екранування МРТ",
+        "RF shielding systems"
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://emigli.com/#rf-shielded-doors",
+      "name": "RF Shielded Doors",
+      "description": "RF shielded doors for MRI facilities manufactured by EMIGLI in Ukraine.",
+      "manufacturer": {
+        "@id": "https://emigli.com/#organization"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://emigli.com/#rf-shielded-windows",
+      "name": "RF Shielded Windows",
+      "description": "RF shielded windows for MRI facilities manufactured by EMIGLI in Ukraine.",
+      "manufacturer": {
+        "@id": "https://emigli.com/#organization"
+      }
+    }
   ]
 }
 </script>
