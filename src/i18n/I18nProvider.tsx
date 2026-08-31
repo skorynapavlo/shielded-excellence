@@ -17,7 +17,7 @@ g.__EMIGLI_I18N_CTX__ = I18nContext;
 export const I18nProvider = ({ children }: { children: ReactNode }) => {
   const [locale, setLocaleState] = useState<Locale>(() => {
     const saved = localStorage.getItem("locale") as Locale | null;
-    return saved === "uk" ? "uk" : "en";
+    return saved === "en" ? "en" : "uk";
   });
 
   const setLocale = useCallback((l: Locale) => {
@@ -38,7 +38,7 @@ export const useI18n = () => {
   if (ctx) return ctx;
   // Fallback keeps the UI rendering (e.g. during HMR) instead of blanking the screen.
   const saved = typeof localStorage !== "undefined" ? localStorage.getItem("locale") : null;
-  const locale: Locale = saved === "uk" ? "uk" : "en";
+  const locale: Locale = saved === "en" ? "en" : "uk";
   return {
     locale,
     t: translations[locale],
