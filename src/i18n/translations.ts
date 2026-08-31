@@ -35,8 +35,8 @@ export const translations = {
             "Turnkey shielded room solutions engineered for 0.2T - 3T MRI systems. Full installation and commissioning included.",
           specs: ["0.2T – 3T compatible", "Turnkey delivery", ""],
           project: {
-            name: "",
-            location: "",
+            name: "Completed EMIGLI Project",
+            location: "Ukraine",
           },
         },
         {
@@ -119,8 +119,8 @@ export const translations = {
             "Екрановані кімнати для систем МРТ 0.2T - 3Т. Повна установка та введення в експлуатацію включені.",
           specs: ["0.2T – 3T сумісність", "Комплексна поставка", ""],
           project: {
-            name: "",
-            location: "",
+            name: "Реалізований проєкт EMIGLI",
+            location: "Україна",
           },
         },
         {
