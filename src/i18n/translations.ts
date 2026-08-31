@@ -13,7 +13,7 @@ export const translations = {
       titleStart: "Engineered",
       titleHighlight: "MRI RF Shielding",
       description:
-        "Custom\u00a0electromagnetic shielding solutions designed for the best MRI performance, patient safety, and regulatory compliance.",
+        "Ukrainian manufacturer of Faraday cages and MRI RF shielding systems. We design and manufacture in Ukraine — for projects in Ukraine and worldwide.",
       viewProducts: "View Products",
       requestQuote: "Request a Quote",
     },
@@ -93,7 +93,7 @@ export const translations = {
       titleStart: "для систем МРТ",
       titleHighlight: "РЧ-екранування",
       description:
-        "Провідні рішення електромагнітного екранування для оптимальної роботи МРТ, безпеки пацієнтів та відповідності нормативним вимогам.",
+        "Український виробник кліток Фарадея та систем РЧ-екранування для МРТ. Проєктуємо та виготовляємо в Україні — для проєктів в Україні та за кордоном.",
       viewProducts: "Переглянути продукцію",
       requestQuote: "Запит пропозиції",
     },
