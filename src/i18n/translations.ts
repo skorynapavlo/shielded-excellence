@@ -34,6 +34,10 @@ export const translations = {
           description:
             "Turnkey shielded room solutions engineered for 0.2T - 3T MRI systems. Full installation and commissioning included.",
           specs: ["0.2T – 3T compatible", "Turnkey delivery", ""],
+          project: {
+            name: "",
+            location: "",
+          },
         },
         {
           title: "RF Shielded Doors",
@@ -114,6 +118,10 @@ export const translations = {
           description:
             "Екрановані кімнати для систем МРТ 0.2T - 3Т. Повна установка та введення в експлуатацію включені.",
           specs: ["0.2T – 3T сумісність", "Комплексна поставка", ""],
+          project: {
+            name: "",
+            location: "",
+          },
         },
         {
           title: "РЧ-екрановані двері",
@@ -162,5 +170,3 @@ export const translations = {
     },
   },
 } as const;
-
-export type Translations = (typeof translations)[Locale];
