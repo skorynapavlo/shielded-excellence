@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useI18n } from "@/i18n/I18nProvider";
 import ManufacturersTicker from "@/components/ManufacturersTicker";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
@@ -9,6 +9,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
 import cage1 from "@/assets/cage-t.jpg";
 import cage2 from "@/assets/cage-a.jpg";
@@ -54,8 +55,33 @@ const fadeUp = {
 const ProductsSection = () => {
   const { t } = useI18n();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
+  const [showProjectInfo, setShowProjectInfo] = useState(false);
   const activeGallery = openIndex !== null ? galleries[openIndex] : null;
   const projects = openIndex === 1 ? t.products.items[1].projects : null;
+
+  useEffect(() => {
+    if (!carouselApi || openIndex === null) {
+      setShowProjectInfo(false);
+      return;
+    }
+
+    let timeoutId: number | undefined;
+
+    const revealProjectInfo = () => {
+      setShowProjectInfo(false);
+      if (timeoutId !== undefined) window.clearTimeout(timeoutId);
+      timeoutId = window.setTimeout(() => setShowProjectInfo(true), 1000);
+    };
+
+    revealProjectInfo();
+    carouselApi.on("select", revealProjectInfo);
+
+    return () => {
+      if (timeoutId !== undefined) window.clearTimeout(timeoutId);
+      carouselApi.off("select", revealProjectInfo);
+    };
+  }, [carouselApi, openIndex]);
 
   return (
     <section id="products" className="py-24 md:py-32" style={{ background: "var(--section-gradient)" }}>
@@ -108,12 +134,12 @@ const ProductsSection = () => {
       </div>
 
       <Dialog open={openIndex !== null} onOpenChange={(o) => !o && setOpenIndex(null)}>
-        <DialogContent className="w-[92vw] max-w-[90vw] max-h-[90vh] md:w-[80vh] md:h-[80vh] md:max-h-[90vw] p-0 gap-0 overflow-hidden border-0">
+        <DialogContent className="w-[92vw] max-w-[90vw] h-[90vh] max-h-[90vh] md:w-[80vh] md:h-[80vh] md:max-h-[90vw] p-0 gap-0 overflow-hidden border-0">
           <DialogTitle className="sr-only">
             {openIndex !== null ? t.products.items[openIndex].title : ""}
           </DialogTitle>
-          <Carousel className="w-full md:h-full">
-            <CarouselContent className="ml-0 h-auto md:h-full">
+          <Carousel setApi={setCarouselApi} className="w-full h-full">
+            <CarouselContent className="ml-0 h-full">
               {(activeGallery ?? []).map((src, idx) => {
                 const project = projects?.[idx];
                 const logo = project ? manufacturerLogos[project.mriManufacturer] : null;
@@ -137,64 +163,66 @@ const ProductsSection = () => {
                 return (
                   <CarouselItem
                     key={idx}
-                    className="h-auto pl-0 relative flex flex-col md:h-full md:block"
+                    className="h-full pl-0 relative flex min-h-0 flex-col md:block"
                   >
-                    <div className="relative w-full md:h-full">
-                      <img
-                        src={src}
-                        alt={`${openIndex !== null ? t.products.items[openIndex].title : ""} ${idx + 1}`}
-                        className="w-full aspect-square object-cover md:h-full md:aspect-auto"
-                      />
+                    <div className="relative flex h-full min-h-0 w-full flex-col md:block">
+                      <div className="relative flex min-h-0 flex-1 items-center justify-center bg-black/[0.02] md:h-full md:block md:flex-none">
+                        <img
+                          src={src}
+                          alt={`${openIndex !== null ? t.products.items[openIndex].title : ""} ${idx + 1}`}
+                          className="max-h-full max-w-full object-contain md:h-full md:w-full md:object-cover"
+                        />
 
-                      {project && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 8 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.45, delay: 0.3, ease: "easeOut" }}
-                          className="hidden md:block absolute left-4 right-4 bottom-4 md:left-6 md:right-6 z-10 pointer-events-none"
-                        >
-                          <div className="inline-block max-w-full rounded-lg bg-white/60 backdrop-blur-sm px-4 py-3 md:px-5 md:py-4 shadow-lg">
-                            <p className="text-sm md:text-base font-semibold leading-snug text-foreground">
-                              {displayName}
-                              {secondLine && <span className="block">{secondLine}</span>}
-                            </p>
-                            <p className="text-xs md:text-sm text-muted-foreground mt-1">
-                              {project.location}
-                            </p>
-                            {logo && (
-                              <div className="mt-3 h-7 md:h-9 flex items-center">
-                                <img
-                                  src={logo.src}
-                                  alt={logo.alt}
-                                  className="h-full w-auto max-w-[110px] object-contain"
-                                />
-                              </div>
-                            )}
-                          </div>
-                        </motion.div>
-                      )}
-                    </div>
-
-                    {project && (
-                      <div className="md:hidden bg-white px-5 py-4 shadow-sm">
-                        <p className="text-base font-semibold leading-snug text-foreground">
-                          {displayName}
-                          {secondLine && <span className="block">{secondLine}</span>}
-                        </p>
-                        <p className="text-sm text-muted-foreground mt-1">
-                          {project.location}
-                        </p>
-                        {logo && (
-                          <div className="mt-3 h-9 flex items-center">
-                            <img
-                              src={logo.src}
-                              alt={logo.alt}
-                              className="h-full w-auto max-w-[130px] object-contain"
-                            />
-                          </div>
+                        {project && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 8 }}
+                            animate={{ opacity: showProjectInfo ? 1 : 0, y: showProjectInfo ? 0 : 8 }}
+                            transition={{ duration: 0.45, ease: "easeOut" }}
+                            className="hidden md:block absolute left-4 right-4 bottom-4 md:left-6 md:right-6 z-10 pointer-events-none"
+                          >
+                            <div className="inline-block max-w-full rounded-lg bg-white/60 backdrop-blur-sm px-4 py-3 md:px-5 md:py-4 shadow-lg">
+                              <p className="text-sm md:text-base font-semibold leading-snug text-foreground">
+                                {displayName}
+                                {secondLine && <span className="block">{secondLine}</span>}
+                              </p>
+                              <p className="text-xs md:text-sm text-muted-foreground mt-1">
+                                {project.location}
+                              </p>
+                              {logo && (
+                                <div className="mt-3 h-7 md:h-9 flex items-center">
+                                  <img
+                                    src={logo.src}
+                                    alt={logo.alt}
+                                    className="h-full w-auto max-w-[110px] object-contain"
+                                  />
+                                </div>
+                              )}
+                            </div>
+                          </motion.div>
                         )}
                       </div>
-                    )}
+
+                      {project && (
+                        <div className="md:hidden flex-none bg-white px-5 py-4 shadow-sm">
+                          <p className="text-base font-semibold leading-snug text-foreground">
+                            {displayName}
+                            {secondLine && <span className="block">{secondLine}</span>}
+                          </p>
+                          <p className="text-sm text-muted-foreground mt-1">
+                            {project.location}
+                          </p>
+                          {logo && (
+                            <div className="mt-3 h-9 flex items-center">
+                              <img
+                                src={logo.src}
+                                alt={logo.alt}
+                                className="h-full w-auto max-w-[130px] object-contain"
+                              />
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
                   </CarouselItem>
                 );
               })}
