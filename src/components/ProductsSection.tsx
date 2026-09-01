@@ -108,61 +108,94 @@ const ProductsSection = () => {
       </div>
 
       <Dialog open={openIndex !== null} onOpenChange={(o) => !o && setOpenIndex(null)}>
-        <DialogContent className="w-[80vh] max-w-[90vw] h-[80vh] max-h-[90vw] p-0 gap-0 overflow-hidden border-0">
+        <DialogContent className="w-[92vw] max-w-[90vw] max-h-[90vh] md:w-[80vh] md:h-[80vh] md:max-h-[90vw] p-0 gap-0 overflow-hidden border-0">
           <DialogTitle className="sr-only">
             {openIndex !== null ? t.products.items[openIndex].title : ""}
           </DialogTitle>
-          <Carousel className="w-full h-full">
-            <CarouselContent className="h-full ml-0">
+          <Carousel className="w-full md:h-full">
+            <CarouselContent className="ml-0 h-auto md:h-full">
               {(activeGallery ?? []).map((src, idx) => {
                 const project = projects?.[idx];
                 const logo = project ? manufacturerLogos[project.mriManufacturer] : null;
 
-                return (
-                  <CarouselItem key={idx} className="h-full pl-0 relative">
-                    <img
-                      src={src}
-                      alt={`${openIndex !== null ? t.products.items[openIndex].title : ""} ${idx + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                    {project && (
-                    <div className="absolute left-4 right-4 bottom-4 md:left-6 md:right-6 md:bottom-6 z-10">
-                      <div className="inline-block max-w-full rounded-lg bg-white/60 px-4 py-3 md:px-5 md:py-4 shadow-lg">
-                        <p className="text-sm md:text-base font-semibold leading-snug text-foreground">
-                          {project.name.includes("Державної прикордонної служби України") ||
-                          project.name.includes("State Border Guard Service of Ukraine") ? (
-                            <>
-                              {project.name.includes("Державної прикордонної служби України")
-                                ? "Головний військово-медичний клінічний центр"
-                                : "Main Military Medical Clinical Center"}
-                              <span className="block">
-                                {project.name.includes("Державної прикордонної служби України")
-                                  ? "Державної прикордонної служби України"
-                                  : "State Border Guard Service of Ukraine"}
-                              </span>
-                            </>
-                          ) : (
-                            project.name
-                          )}
-                        </p>
+                const projectName = project?.name ?? "";
+                const isBorderGuardProject =
+                  projectName.includes("Державної прикордонної служби України") ||
+                  projectName.includes("State Border Guard Service of Ukraine");
+                const isUkrainian = projectName.includes("Державної прикордонної служби України");
+                const displayName = isBorderGuardProject
+                  ? isUkrainian
+                    ? "Головний військово-медичний клінічний центр"
+                    : "Main Military Medical Clinical Center"
+                  : projectName;
+                const secondLine = isBorderGuardProject
+                  ? isUkrainian
+                    ? "Державної прикордонної служби України"
+                    : "State Border Guard Service of Ukraine"
+                  : null;
 
-                        <p className="text-xs md:text-sm text-muted-foreground mt-1">
+                return (
+                  <CarouselItem
+                    key={idx}
+                    className="h-auto pl-0 relative flex flex-col md:h-full md:block"
+                  >
+                    <div className="relative w-full md:h-full">
+                      <img
+                        src={src}
+                        alt={`${openIndex !== null ? t.products.items[openIndex].title : ""} ${idx + 1}`}
+                        className="w-full aspect-square object-cover md:h-full md:aspect-auto"
+                      />
+
+                      {project && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.45, delay: 0.3, ease: "easeOut" }}
+                          className="hidden md:block absolute left-4 right-4 bottom-4 md:left-6 md:right-6 z-10 pointer-events-none"
+                        >
+                          <div className="inline-block max-w-full rounded-lg bg-white/60 backdrop-blur-sm px-4 py-3 md:px-5 md:py-4 shadow-lg">
+                            <p className="text-sm md:text-base font-semibold leading-snug text-foreground">
+                              {displayName}
+                              {secondLine && <span className="block">{secondLine}</span>}
+                            </p>
+                            <p className="text-xs md:text-sm text-muted-foreground mt-1">
+                              {project.location}
+                            </p>
+                            {logo && (
+                              <div className="mt-3 h-7 md:h-9 flex items-center">
+                                <img
+                                  src={logo.src}
+                                  alt={logo.alt}
+                                  className="h-full w-auto max-w-[110px] object-contain"
+                                />
+                              </div>
+                            )}
+                          </div>
+                        </motion.div>
+                      )}
+                    </div>
+
+                    {project && (
+                      <div className="md:hidden bg-white px-5 py-4 shadow-sm">
+                        <p className="text-base font-semibold leading-snug text-foreground">
+                          {displayName}
+                          {secondLine && <span className="block">{secondLine}</span>}
+                        </p>
+                        <p className="text-sm text-muted-foreground mt-1">
                           {project.location}
                         </p>
-
                         {logo && (
-                          <div className="mt-3 h-7 md:h-9 flex items-center">
+                          <div className="mt-3 h-9 flex items-center">
                             <img
                               src={logo.src}
                               alt={logo.alt}
-                              className="h-full w-auto max-w-[110px] object-contain"
+                              className="h-full w-auto max-w-[130px] object-contain"
                             />
                           </div>
                         )}
                       </div>
-                    </div>
-                  )}
-                </CarouselItem>
+                    )}
+                  </CarouselItem>
                 );
               })}
             </CarouselContent>
