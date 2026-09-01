@@ -170,7 +170,7 @@ const ProductsSection = () => {
                         <img
                           src={src}
                           alt={`${openIndex !== null ? t.products.items[openIndex].title : ""} ${idx + 1}`}
-                          className="block w-full h-auto max-h-[90vh] object-contain md:h-full md:w-full md:max-h-none md:object-cover"
+                          className="block w-full h-auto max-h-[68vh] object-contain md:h-full md:w-full md:max-h-none md:object-cover"
                         />
 
                         {project && (
