@@ -134,11 +134,11 @@ const ProductsSection = () => {
       </div>
 
       <Dialog open={openIndex !== null} onOpenChange={(o) => !o && setOpenIndex(null)}>
-        <DialogContent className="w-[92vw] max-w-[90vw] h-auto max-h-[90vh] md:w-[80vh] md:h-[80vh] md:max-h-[90vw] p-0 gap-0 overflow-hidden border-0">
+        <DialogContent className="w-[calc(100vw-24px)] max-w-[calc(100vw-24px)] max-h-[calc(100dvh-80px)] overflow-y-auto p-0 gap-0 border-0 md:w-[80vh] md:max-w-[90vw] md:h-[80vh] md:max-h-[90vw] md:overflow-hidden">
           <DialogTitle className="sr-only">
             {openIndex !== null ? t.products.items[openIndex].title : ""}
           </DialogTitle>
-          <Carousel setApi={setCarouselApi} className="w-full h-auto md:h-full">
+          <Carousel setApi={setCarouselApi} className="relative w-full h-auto md:h-full">
             <CarouselContent className="ml-0 h-auto md:h-full">
               {(activeGallery ?? []).map((src, idx) => {
                 const project = projects?.[idx];
@@ -166,11 +166,11 @@ const ProductsSection = () => {
                     className="h-auto pl-0 relative flex min-h-0 flex-col md:h-full md:block"
                   >
                     <div className="relative flex h-auto min-h-0 w-full flex-col md:h-full md:block">
-                      <div className="relative flex w-full aspect-[4/3] items-center justify-center bg-black/[0.02] md:h-full md:aspect-auto md:block">
+                      <div className="relative flex h-[58dvh] max-h-[520px] w-full items-center justify-center bg-black/[0.02] md:h-full md:max-h-none md:aspect-auto md:block">
                         <img
                           src={src}
                           alt={`${openIndex !== null ? t.products.items[openIndex].title : ""} ${idx + 1}`}
-                          className="block w-full h-full object-contain md:h-full md:w-full md:max-h-none md:object-cover"
+                          className="block max-h-full max-w-full object-contain md:h-full md:w-full md:max-h-none md:object-cover"
                         />
 
                         {project && (
@@ -227,8 +227,8 @@ const ProductsSection = () => {
                 );
               })}
             </CarouselContent>
-            <CarouselPrevious className="!left-2 z-20" />
-            <CarouselNext className="!right-2 z-20" />
+            <CarouselPrevious className="!left-2 !top-[29dvh] z-30 md:!top-1/2" />
+            <CarouselNext className="!right-2 !top-[29dvh] z-30 md:!top-1/2" />
           </Carousel>
         </DialogContent>
       </Dialog>
