@@ -127,7 +127,7 @@ const ProductsSection = () => {
                     />
                     {project && (
                     <div className="absolute left-4 right-4 bottom-4 md:left-6 md:right-6 md:bottom-6 z-10">
-                      <div className="inline-block max-w-full rounded-lg bg-white/95 px-4 py-3 md:px-5 md:py-4 shadow-lg">
+                      <div className="inline-block max-w-full rounded-lg bg-white/60 px-4 py-3 md:px-5 md:py-4 shadow-lg">
                         <p className="text-sm md:text-base font-semibold leading-snug text-foreground">
                           {project.name.includes("Державної прикордонної служби України") ||
                           project.name.includes("State Border Guard Service of Ukraine") ? (
