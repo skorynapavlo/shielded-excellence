@@ -166,11 +166,11 @@ const ProductsSection = () => {
                     className="h-auto pl-0 relative flex min-h-0 flex-col md:h-full md:block"
                   >
                     <div className="relative flex h-auto min-h-0 w-full flex-col md:h-full md:block">
-                      <div className="relative flex min-h-0 w-full items-center justify-center bg-black/[0.02] md:h-full md:block">
+                      <div className="relative flex w-full aspect-[4/3] items-center justify-center bg-black/[0.02] md:h-full md:aspect-auto md:block">
                         <img
                           src={src}
                           alt={`${openIndex !== null ? t.products.items[openIndex].title : ""} ${idx + 1}`}
-                          className="block w-full h-auto max-h-[68vh] object-contain md:h-full md:w-full md:max-h-none md:object-cover"
+                          className="block w-full h-full object-contain md:h-full md:w-full md:max-h-none md:object-cover"
                         />
 
                         {project && (
@@ -227,8 +227,8 @@ const ProductsSection = () => {
                 );
               })}
             </CarouselContent>
-            <CarouselPrevious className="left-2" />
-            <CarouselNext className="right-2" />
+            <CarouselPrevious className="!left-2 z-20" />
+            <CarouselNext className="!right-2 z-20" />
           </Carousel>
         </DialogContent>
       </Dialog>
