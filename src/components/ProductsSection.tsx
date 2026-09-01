@@ -138,15 +138,15 @@ const ProductsSection = () => {
         <DialogContent
           className={`w-[calc(100vw-24px)] max-w-[calc(100vw-24px)] p-0 gap-0 border-0 md:w-[80vh] md:max-w-[90vw] md:h-[80vh] md:max-h-[90vw] md:overflow-hidden ${
             isCagesGallery
-              ? "h-[calc(100dvh-32px)] max-h-[calc(100dvh-32px)] overflow-hidden"
+              ? "h-auto max-h-[calc(100dvh-32px)] overflow-y-auto"
               : "h-auto max-h-[calc(100dvh-96px)] overflow-y-auto"
           }`}
         >
           <DialogTitle className="sr-only">
             {openIndex !== null ? t.products.items[openIndex].title : ""}
           </DialogTitle>
-          <Carousel setApi={setCarouselApi} className="relative w-full h-full">
-            <CarouselContent className="ml-0 h-full">
+          <Carousel setApi={setCarouselApi} className="relative w-full min-w-0 max-w-full h-auto overflow-visible md:h-full">
+            <CarouselContent className="ml-0 h-auto w-full min-w-0 max-w-full md:h-full">
               {(activeGallery ?? []).map((src, idx) => {
                 const project = projects?.[idx];
                 const logo = project ? manufacturerLogos[project.mriManufacturer] : null;
@@ -158,26 +158,22 @@ const ProductsSection = () => {
                 const isUkrainian = projectName.includes("Державної прикордонної служби України");
                 const displayName = isBorderGuardProject
                   ? isUkrainian
-                    ? "Головний військово-медичний клінічний центр"
-                    : "Main Military Medical Clinical Center"
+                    ? "ГВМКЦ Державної прикордонної служби"
+                    : "MMMCC of the State Border Guard Service"
                   : projectName;
-                const secondLine = isBorderGuardProject
-                  ? isUkrainian
-                    ? "Державної прикордонної служби України"
-                    : "State Border Guard Service of Ukraine"
-                  : null;
+                const secondLine = null;
 
                 return (
                   <CarouselItem
                     key={idx}
-                    className={`h-full pl-0 relative flex min-h-0 flex-col md:h-full md:block ${
+                    className={`h-auto w-full min-w-0 max-w-full pl-0 relative flex min-h-0 flex-col md:h-full md:block ${
                       isCagesGallery ? "" : ""
                     }`}
                   >
-                    <div className="relative flex h-full min-h-0 w-full flex-col md:h-full md:block">
+                    <div className="relative flex w-full min-w-0 max-w-full flex-col md:h-full md:block">
                       <div
                         className={`relative w-full flex items-center justify-center bg-black/[0.02] md:h-full md:max-h-none md:aspect-auto md:block ${
-                          isCagesGallery ? "h-[calc(100%-150px)] min-h-0" : "h-auto"
+                          isCagesGallery ? "h-auto min-h-0 w-full max-w-full" : "h-auto"
                         }`}
                       >
                         <img
@@ -244,8 +240,8 @@ const ProductsSection = () => {
                 );
               })}
             </CarouselContent>
-            <CarouselPrevious className="!left-2 !top-1/2 !-translate-y-1/2 z-30 md:!top-1/2" />
-            <CarouselNext className="!right-2 !top-1/2 !-translate-y-1/2 z-30 md:!top-1/2" />
+            <CarouselPrevious className="!left-2 !top-1/2 !-translate-y-1/2 !z-50 md:!top-1/2" />
+            <CarouselNext className="!right-2 !top-1/2 !-translate-y-1/2 !z-50 !flex md:!right-2 md:!top-1/2" />
           </Carousel>
         </DialogContent>
       </Dialog>
