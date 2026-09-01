@@ -59,6 +59,7 @@ const ProductsSection = () => {
   const [showProjectInfo, setShowProjectInfo] = useState(false);
   const activeGallery = openIndex !== null ? galleries[openIndex] : null;
   const projects = openIndex === 1 ? t.products.items[1].projects : null;
+  const isCagesGallery = openIndex === 1;
 
   useEffect(() => {
     if (!carouselApi || openIndex === null) {
@@ -134,12 +135,18 @@ const ProductsSection = () => {
       </div>
 
       <Dialog open={openIndex !== null} onOpenChange={(o) => !o && setOpenIndex(null)}>
-        <DialogContent className="w-[calc(100vw-24px)] max-w-[calc(100vw-24px)] h-auto max-h-[calc(100dvh-96px)] overflow-y-auto p-0 gap-0 border-0 md:w-[80vh] md:max-w-[90vw] md:h-[80vh] md:max-h-[90vw] md:overflow-hidden">
+        <DialogContent
+          className={`w-[calc(100vw-24px)] max-w-[calc(100vw-24px)] p-0 gap-0 border-0 md:w-[80vh] md:max-w-[90vw] md:h-[80vh] md:max-h-[90vw] md:overflow-hidden ${
+            isCagesGallery
+              ? "h-[calc(100dvh-32px)] max-h-[calc(100dvh-32px)] overflow-hidden"
+              : "h-auto max-h-[calc(100dvh-96px)] overflow-y-auto"
+          }`}
+        >
           <DialogTitle className="sr-only">
             {openIndex !== null ? t.products.items[openIndex].title : ""}
           </DialogTitle>
-          <Carousel setApi={setCarouselApi} className="relative w-full h-auto md:h-full">
-            <CarouselContent className="ml-0 h-auto md:h-full">
+          <Carousel setApi={setCarouselApi} className="relative w-full h-full">
+            <CarouselContent className="ml-0 h-full">
               {(activeGallery ?? []).map((src, idx) => {
                 const project = projects?.[idx];
                 const logo = project ? manufacturerLogos[project.mriManufacturer] : null;
@@ -163,14 +170,24 @@ const ProductsSection = () => {
                 return (
                   <CarouselItem
                     key={idx}
-                    className="h-auto pl-0 relative flex min-h-0 flex-col md:h-full md:block"
+                    className={`h-full pl-0 relative flex min-h-0 flex-col md:h-full md:block ${
+                      isCagesGallery ? "" : ""
+                    }`}
                   >
-                    <div className="relative flex h-auto min-h-0 w-full flex-col md:h-full md:block">
-                      <div className="relative w-full flex items-center justify-center bg-black/[0.02] md:h-full md:max-h-none md:aspect-auto md:block">
+                    <div className="relative flex h-full min-h-0 w-full flex-col md:h-full md:block">
+                      <div
+                        className={`relative w-full flex items-center justify-center bg-black/[0.02] md:h-full md:max-h-none md:aspect-auto md:block ${
+                          isCagesGallery ? "h-[calc(100%-150px)] min-h-0" : "h-auto"
+                        }`}
+                      >
                         <img
                           src={src}
                           alt={`${openIndex !== null ? t.products.items[openIndex].title : ""} ${idx + 1}`}
-                          className="mx-auto block w-full h-auto max-h-[65dvh] object-contain md:h-full md:w-full md:max-h-none md:object-cover"
+                          className={`mx-auto block w-full object-contain md:h-full md:w-full md:max-h-none md:object-cover ${
+                            isCagesGallery
+                              ? "h-full max-h-full"
+                              : "h-auto max-h-[65dvh]"
+                          }`}
                         />
 
                         {project && (
