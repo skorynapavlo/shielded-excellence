@@ -134,12 +134,12 @@ const ProductsSection = () => {
       </div>
 
       <Dialog open={openIndex !== null} onOpenChange={(o) => !o && setOpenIndex(null)}>
-        <DialogContent className="w-[92vw] max-w-[90vw] h-[90vh] max-h-[90vh] md:w-[80vh] md:h-[80vh] md:max-h-[90vw] p-0 gap-0 overflow-hidden border-0">
+        <DialogContent className="w-[92vw] max-w-[90vw] h-auto max-h-[90vh] md:w-[80vh] md:h-[80vh] md:max-h-[90vw] p-0 gap-0 overflow-hidden border-0">
           <DialogTitle className="sr-only">
             {openIndex !== null ? t.products.items[openIndex].title : ""}
           </DialogTitle>
-          <Carousel setApi={setCarouselApi} className="w-full h-full">
-            <CarouselContent className="ml-0 h-full">
+          <Carousel setApi={setCarouselApi} className="w-full h-auto md:h-full">
+            <CarouselContent className="ml-0 h-auto md:h-full">
               {(activeGallery ?? []).map((src, idx) => {
                 const project = projects?.[idx];
                 const logo = project ? manufacturerLogos[project.mriManufacturer] : null;
@@ -163,14 +163,14 @@ const ProductsSection = () => {
                 return (
                   <CarouselItem
                     key={idx}
-                    className="h-full pl-0 relative flex min-h-0 flex-col md:block"
+                    className="h-auto pl-0 relative flex min-h-0 flex-col md:h-full md:block"
                   >
-                    <div className="relative flex h-full min-h-0 w-full flex-col md:block">
-                      <div className="relative flex min-h-0 flex-1 items-center justify-center bg-black/[0.02] md:h-full md:block md:flex-none">
+                    <div className="relative flex h-auto min-h-0 w-full flex-col md:h-full md:block">
+                      <div className="relative flex min-h-0 w-full items-center justify-center bg-black/[0.02] md:h-full md:block">
                         <img
                           src={src}
                           alt={`${openIndex !== null ? t.products.items[openIndex].title : ""} ${idx + 1}`}
-                          className="max-h-full max-w-full object-contain md:h-full md:w-full md:object-cover"
+                          className="block w-full h-auto max-h-[90vh] object-contain md:h-full md:w-full md:max-h-none md:object-cover"
                         />
 
                         {project && (
