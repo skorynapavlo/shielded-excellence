@@ -126,23 +126,43 @@ const ProductsSection = () => {
                       className="w-full h-full object-cover"
                     />
                     {project && (
-                      <div className="absolute inset-x-0 bottom-0 p-4 md:p-6 bg-gradient-to-t from-black/85 via-black/55 to-transparent text-white pointer-events-none">
-                        <div className="max-w-3xl">
-                          <p className="text-sm md:text-base font-medium tracking-wide">{project.name}</p>
-                          <p className="text-xs md:text-sm text-white/80 mt-1">{project.location}</p>
-                          {logo && (
-                            <div className="mt-3 h-7 md:h-9 flex items-center">
-                              <img
-                                src={logo.src}
-                                alt={logo.alt}
-                                className="h-full w-auto max-w-[110px] object-contain"
-                              />
-                            </div>
+                    <div className="absolute left-4 right-4 bottom-4 md:left-6 md:right-6 md:bottom-6 z-10">
+                      <div className="inline-block max-w-full rounded-lg bg-white/95 px-4 py-3 md:px-5 md:py-4 shadow-lg">
+                        <p className="text-sm md:text-base font-semibold leading-snug text-foreground">
+                          {project.name.includes("Державної прикордонної служби України") ||
+                          project.name.includes("State Border Guard Service of Ukraine") ? (
+                            <>
+                              {project.name.includes("Державної прикордонної служби України")
+                                ? "Головний військово-медичний клінічний центр"
+                                : "Main Military Medical Clinical Center"}
+                              <span className="block">
+                                {project.name.includes("Державної прикордонної служби України")
+                                  ? "Державної прикордонної служби України"
+                                  : "State Border Guard Service of Ukraine"}
+                              </span>
+                            </>
+                          ) : (
+                            project.name
                           )}
-                        </div>
+                        </p>
+
+                        <p className="text-xs md:text-sm text-muted-foreground mt-1">
+                          {project.location}
+                        </p>
+
+                        {logo && (
+                          <div className="mt-3 h-7 md:h-9 flex items-center">
+                            <img
+                              src={logo.src}
+                              alt={logo.alt}
+                              className="h-full w-auto max-w-[110px] object-contain"
+                            />
+                          </div>
+                        )}
                       </div>
-                    )}
-                  </CarouselItem>
+                    </div>
+                  )}
+                </CarouselItem>
                 );
               })}
             </CarouselContent>
